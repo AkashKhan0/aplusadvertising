@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "tailwindcss";
 
 * {
@@ -5,9 +9,14 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
+  font-family: "berlin", "berlin Fallback";
 }
 ::-webkit-scrollbar {
   display: none;
+}
+body {
+  background-color: #CBD6EB;
+  color: #181520;
 }
 .footer {
   padding: 10px 0px;
@@ -17,6 +26,114 @@
   cursor: pointer;
 }
 .s_icon {
-  color: white;
   transition: all 0.3s ease;
+}
+.social_icons:hover .s_icon {
+  color: #9C1F0E;
+}
+.nav_items {
+  color: #181520;
+  transition: all 0.3s ease;
+  padding: 3px 10px;
+}
+.nav_items:hover {
+  color: #9C1F0E;
+  background-color: #D7B861;
+  border-radius: 15px 0px 15px 0px;
+}
+.mobile_nav_items {
+  color: #181520;
+  transition: all 0.3s ease;
+}
+.mobile_nav_items:hover {
+  color: #9C1F0E;
+}
+.top_up {
+  animation: bounceFade 3s ease-in-out infinite;
+}
+
+@keyframes bounceFade {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-40px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.mobile_view {
+    display: none;
+}
+
+@media (max-width: 1026px) {
+  .desktop_view {
+    display: none;
+  }
+  .mobile_view {
+    display: block;
+    height: 100%;
+  }
+}
+
+.universal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.universal_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fixed_width {
+  width: 100%;
+  max-width: 1280px;
+}
+
+.title1 {
+  font-weight: bold;
+  color: #9C1F0E;
+}
+::selection {
+  background: #9C1F0E;
+  color: rgb(2, 2, 2);
+}
+
+.baton {
+  padding: 4px 15px;
+  position: relative;
+}
+button {
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+.bordersy {
+  width: 10px;
+  height: 2px;
+  background-color: #9C1F0E;
+  transition: all 0.3s ease;
+}
+.baton:hover .bordersy {
+  width: 46%;
+}
+.bordersx {
+  height: 10px;
+  width: 2px;
+  background-color: #9C1F0E;
+  transition: all 0.3s ease;
+}
+.baton:hover .bordersx {
+  height: 50%;
 }

@@ -11,7 +11,10 @@
   "dependencies": {
     "@headlessui/react": "^2.2.7",
     "@heroicons/react": "^2.2.0",
+    "@studio-freight/lenis": "^1.0.42",
     "bcryptjs": "^3.0.2",
+    "framer-motion": "^12.23.12",
+    "gsap": "^3.13.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.0",
     "next": "15.5.0",

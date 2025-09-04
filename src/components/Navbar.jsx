@@ -1,57 +1,178 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/globals.css";
+import Image from "next/image";
+import { AiOutlineCaretUp } from "react-icons/ai";
+import { TbHomeFilled } from "react-icons/tb";
+import { GrServices } from "react-icons/gr";
+import { LiaBlogSolid } from "react-icons/lia";
+import { FaDiagramProject } from "react-icons/fa6";
+import { HiTemplate } from "react-icons/hi";
+import { BsFillDiagram3Fill } from "react-icons/bs";
+import { RiInfoCardFill } from "react-icons/ri";
+import { MdConnectWithoutContact } from "react-icons/md";
+import { ImProfile } from "react-icons/im";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShow(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    const start = window.scrollY;
+    const duration = 1000; // 1 second
+    const startTime = performance.now();
+
+    const animateScroll = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1); // 0 → 1
+      const easeInOutCubic =
+        progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      window.scrollTo(0, start * (1 - easeInOutCubic));
+
+      if (elapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
 
   return (
-    <nav className="bg-[#232F3E] shadow-md fixed bottom-0 left-0 w-full z-50 flex items-center justify-center h-[50px]">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        
+    <nav className="bg-[#232f3e44] backdrop-blur-[5px] shadow-md fixed bottom-0 left-0 w-full z-50 flex items-center justify-center h-[50px]">
+      {/* ei navbar section shudhu matro desktop view er jonno */}
+      <div className="container desktop_view mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-white">
-          MyBusiness
+          <Image
+            src="/logo.png"
+            alt="My Business Logo"
+            width={180}
+            height={50}
+            className="w-[70px] h-[40px]"
+          />
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6 font-medium gap-5">
-          <li><Link href="/" className="text-white hover:text-blue-600">Home</Link></li>
-          <li><Link href="/services" className="text-white hover:text-blue-600">Services</Link></li>
-          <li><Link href="/blogs" className="text-white hover:text-blue-600">Blogs</Link></li>
-          <li><Link href="/projects" className="text-white hover:text-blue-600">Projects</Link></li>
-          <li><Link href="/templates" className="text-white hover:text-blue-600">Templates</Link></li>
-          <li><Link href="/plans" className="text-white hover:text-blue-600">Your Plans</Link></li>
-          <li><Link href="/about" className="text-white hover:text-blue-600">About</Link></li>
-          <li><Link href="/contact" className="text-white hover:text-blue-600">Contact</Link></li>
+        <ul className="hidden md:flex space-x-1 text-lg font-semibold">
+          <li>
+            <Link href="/services" prefetch={true} className="nav_items">
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link href="/blogs" prefetch={true} className="nav_items">
+              Blogs
+            </Link>
+          </li>
+          <li>
+            <Link href="/projects" prefetch={true} className="nav_items">
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link href="/templates" prefetch={true} className="nav_items">
+              Templates
+            </Link>
+          </li>
+          <li>
+            <Link href="/plans" prefetch={true} className="nav_items">
+              Your Plans
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" prefetch={true} className="nav_items">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" prefetch={true} className="nav_items">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" prefetch={true} className="nav_items">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link href="/profile" prefetch={true} className="nav_items">
+              Profile
+            </Link>
+          </li>
         </ul>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          ☰
-        </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <ul className="flex flex-col space-y-4 px-4 py-4 font-medium">
-            <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-            <li><Link href="/services" onClick={() => setIsOpen(false)}>Services</Link></li>
-            <li><Link href="/blogs" onClick={() => setIsOpen(false)}>Blogs</Link></li>
-            <li><Link href="/projects" onClick={() => setIsOpen(false)}>Projects</Link></li>
-            <li><Link href="/templates" onClick={() => setIsOpen(false)}>Templates</Link></li>
-            <li><Link href="/plans" onClick={() => setIsOpen(false)}>Your Plans</Link></li>
-            <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
-            <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
-          </ul>
+      {/* ei section Mobile view er jonno */}
+      <div className="w-full h-full mobile_view">
+        <div className="w-full h-full flex items-center justify-between px-3">
+          <div className="w-full hidden sm:block md:block">
+            {/* Logo */}
+        <Link href="/" className="text-2xl font-bold text-white ">
+          <Image
+            src="/logo.png"
+            alt="My Business Logo"
+            width={180}
+            height={50}
+            className="w-[70px] h-[40px]"
+          />
+        </Link>
+          </div>
+
+
+          <div className="w-full flex items-center justify-center sm:justify-end md:justify-end gap-3">
+            <Link href="/" prefetch={true} className="mobile_nav_items text-xl">
+              <TbHomeFilled />
+            </Link>
+            <Link href="/services" prefetch={true} className="mobile_nav_items text-xl">
+              <GrServices />
+            </Link>
+            <Link href="/blogs" prefetch={true} className="mobile_nav_items text-xl">
+              <LiaBlogSolid />
+            </Link>
+            <Link href="/projects" prefetch={true} className="mobile_nav_items text-xl">
+              <FaDiagramProject />
+            </Link>
+            <Link href="/templates" prefetch={true} className="mobile_nav_items text-xl">
+              <HiTemplate />
+            </Link>
+            <Link href="/plans" prefetch={true} className="mobile_nav_items text-xl">
+              <BsFillDiagram3Fill />
+            </Link>
+            <Link href="/about" prefetch={true} className="mobile_nav_items text-xl">
+              <RiInfoCardFill />
+            </Link>
+            <Link href="/contact" prefetch={true} className="mobile_nav_items text-xl">
+              <MdConnectWithoutContact />
+            </Link>
+            <Link href="/profile" prefetch={true} className="mobile_nav_items text-xl">
+              <ImProfile />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+
+      {show && (
+        <div
+          onClick={scrollToTop}
+          className="fixed left-2 bottom-10 text-3xl w-[40px] h-[40px] text-[#9C1F0E] rounded-full flex items-center justify-center cursor-pointer top_up"
+        >
+          <AiOutlineCaretUp />
         </div>
       )}
+      
     </nav>
   );
 };

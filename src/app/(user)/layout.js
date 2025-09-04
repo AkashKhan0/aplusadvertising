@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import "../../styles/globals.css";
 import Footer from "@/components/Footer";
-// import { Geist, Geist_Mono } from "next/font/google";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 export const metadata = {
   title: "Aplus Asvertising Limited",
@@ -13,12 +13,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={``}>
         <Navbar />
         <Footer />
-        <main className="">{children}</main>
+        <main className=""><SmoothScrollProvider>{children}</SmoothScrollProvider></main>
       </body>
     </html>
   );
