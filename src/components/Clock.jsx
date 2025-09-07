@@ -1,15 +1,21 @@
 "use client";
+
 import { useEffect, useState } from "react";
 
 export default function Clock() {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(null); // start as null
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true); // client mounted
+    setTime(new Date()); // initialize time
     const interval = setInterval(() => {
       setTime(new Date());
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  if (!mounted || !time) return null; // do not render until mounted
 
   // Current time
   const hours = time.getHours() % 12;
