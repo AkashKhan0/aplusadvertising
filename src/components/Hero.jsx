@@ -29,7 +29,7 @@ export default function Hero() {
                 </div>
               </AnimationWrapper>
               <div className="w-full mt-5">
-                <AnimationWrapper direction="bottom">
+                <AnimationWrapper direction="left">
                   <div className="w-full flex items-center justify-center sm:justify-center md:justify-start gap-3">
                     <ButtonLink href="/contact" text="Contact Us" />
                     <ButtonLink href="/plans" text="Choose a plan" />

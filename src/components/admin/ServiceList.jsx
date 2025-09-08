@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete, MdOutlineDownloadDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
+import SubCategoryManager from "./SubCategoryManager";
 
 export default function ServiceList() {
   const [categories, setCategories] = useState([]);
@@ -68,7 +69,7 @@ export default function ServiceList() {
             {categories.map((cat) => (
               <div
                 key={cat._id}
-                className="w-full sm:w-full md:w-[50%] p-1 border flex items-center justify-between gap-2.5"
+                className="w-full sm:w-full md:w-[50%] bg-[#A2B2D1] rounded-[4px] px-2 py-1 flex items-center justify-between gap-2.5"
               >
                 <div className="capitalize w-fit text-xl">
                     {editId === cat._id ? (
@@ -127,10 +128,14 @@ export default function ServiceList() {
         </div>
 
         {/* sub categorys list */}
-        <div className="sub_cat w-full mt-10">
+        <div className="w-full mt-10">
           <h1 className="text-2xl font-bold w-fit title1 uppercase mb-5">
             sub categorys
           </h1>
+
+          <div className="w-full flex flex-col gap-2.5">
+            <SubCategoryManager mainCategories={categories} />
+          </div>
         </div>
       </div>
     </>

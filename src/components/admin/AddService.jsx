@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import AddSubCategory from "./AddSubCategory";
 
 export default function AddService() {
   const [categoryname, setCategoryname] = useState("");
@@ -74,23 +75,8 @@ export default function AddService() {
           Add Services Sub Category
         </h1>
 
-        <div className="flex justify-between gap-2.5">
-          <form
-            className="w-full flex items-center gap-2.5"
-          >
-            <input
-              type="text"
-              placeholder="Type your name..."
-              className="w-[80%] px-3 py-2 border focus:outline-none focus:ring-1 focus:ring-blue-500"
-              required
-            />
-
-            <button
-              className="w-[20%] bg-[#9C1F0E] text-white py-2 px-5"
-            >
-              Add sub category
-            </button>
-          </form>
+        <div className="w-full">
+          <AddSubCategory />          
         </div>
       </div>
     </>

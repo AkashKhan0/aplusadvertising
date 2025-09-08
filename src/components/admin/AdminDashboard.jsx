@@ -24,7 +24,7 @@ export default function AdminDashboard() {
   return (
     <>
       <div className="w-full universal">
-        <div className="w-full h-screen  flex items-stretch justify-between">
+        <div className="w-full h-full min-h-screen flex items-stretch justify-between">
           <div className="left w-[20%] p-5 bg-[#a2b2d1]">
             {tabs.map((tab) => (
               <div
