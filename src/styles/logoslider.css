@@ -1,0 +1,97 @@
+.scroll {
+    position: relative;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent)
+}
+
+.scroll div {
+    white-space: nowrap;
+    animation: scroll var(--time) linear infinite;
+    animation-delay: calc(var(--time)*-1);
+
+}
+
+.scroll div:nth-child(2) {
+    animation: scroll2 var(--time) linear infinite;
+    animation-delay: calc(var(--time)/-2);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+.scroll div span {
+    display: inline-flex;
+    margin: 10px;
+    letter-spacing: 1px;
+    background: #99A1AF;
+    color: #9C1F0E;
+    padding: 5px 10px;
+    transition: 0.5s;
+    border: 1px solid #99a1af00;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.scroll div span:hover {
+    background: #3fd1f900;
+    cursor: pointer;
+    border: 1px solid #333;
+    color: #333;
+}
+
+.imgBox div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgBox img {
+    max-width: 100px;
+    scale: 0.8;
+}
+
+
+
+
+
+/* our achivment part css */
+.star {
+  color: white;
+  animation: fillGold 1s forwards, bounce 0.5s ease-out;
+}
+
+.star-0 { animation-delay: 0s, 0s; }
+.star-1 { animation-delay: 0.2s, 0.2s; }
+.star-2 { animation-delay: 0.4s, 0.4s; }
+.star-3 { animation-delay: 0.6s, 0.6s; }
+.star-4 { animation-delay: 0.8s, 0.8s; }
+
+@keyframes fillGold {
+  0% { color: white; text-shadow: none; }
+  100% { color: rgb(136, 115, 0); text-shadow: 0 0 8px rgb(147, 125, 0), 0 0 15px rgb(129, 84, 0); }
+}
+
+@keyframes bounce {
+  0%   { transform: scale(0.8); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

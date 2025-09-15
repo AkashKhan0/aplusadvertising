@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function AddSubCategory() {
   const [categories, setCategories] = useState([]);
@@ -12,6 +12,7 @@ export default function AddSubCategory() {
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(""); // ✅ new state
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     fetch("/api/categories")
@@ -37,6 +38,7 @@ export default function AddSubCategory() {
       // 1) Upload to cloudinary
       const fd = new FormData();
       fd.append("file", form.imageFile);
+      fd.append("folder", "subcategories");
 
       const uploadRes = await fetch("/api/upload", {
         method: "POST",
@@ -75,6 +77,12 @@ export default function AddSubCategory() {
         imageFile: null,
         buttonText: "View Details",
       });
+
+      // ✅ reset file input manually
+      if (fileInputRef.current) {
+        fileInputRef.current.value = null;
+      }
+
       window.dispatchEvent(new Event("subcategories:refresh"));
     } catch (err) {
       setMessage("❌ " + err.message);
@@ -117,7 +125,13 @@ export default function AddSubCategory() {
           className="w-full border px-2 py-2"
         />
 
-        <input type="file" accept="image/*" onChange={handleFile} className="w-full border px-2 py-2" />
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={handleFile}
+          className="w-full border px-2 py-2"
+        />
 
         <input
           type="text"

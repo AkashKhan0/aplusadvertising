@@ -9,9 +9,9 @@ export default function Hero() {
     <>
       <div className="flex flex-col items-center justify-center mb-5">
         <div className="w-full universal">
-          <div className="fixed_width flex flex-col sm:flex-col md:flex-row items-stretch justify-between h-fit py-24 gap-5 px-2 sm:px-2 md:px-2">
+          <div className="fixed_width flex flex-col sm:flex-col md:flex-row items-stretch sm:items-center md:items-center justify-between h-fit py-24 gap-5 px-2 sm:px-2 md:px-2">
             {/* left side */}
-            <div className="w-full flex flex-col items-center sm:items-center md:items-start justify-center">
+            <div className="w-full sm:w-full md:w-[50%] flex flex-col items-center sm:items-center md:items-start justify-center">
               <AnimationWrapper direction="left">
                 <div className="w-full text-center sm:text-center md:text-start">
                   <h1 className="text-lg sm:text-xl md:text-2xl font-semibold">
@@ -39,11 +39,11 @@ export default function Hero() {
             </div>
 
             {/* right side */}
-            <div className="flex flex-col items-center justify-center w-full px-2 sm:px-2 md:px-2">
+            <div className="flex flex-col items-center justify-center w-full sm:w-full md:w-[50%] px-2 sm:px-2 md:px-2">
               <AnimationWrapper direction="right">
                 <div className="w-full h-full">
                   <Image
-                    src="/images/hero.png"
+                    src="/images/workspace.gif"
                     alt="aplus"
                     width={180}
                     height={50}

@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import "../../styles/globals.css";
 import Footer from "@/components/Footer";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
   title: "Aplus Asvertising Limited",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className={``}>
         <Navbar />
         <Footer />
+        <ScrollToTop />
         <main className=""><SmoothScrollProvider>{children}</SmoothScrollProvider></main>
       </body>
     </html>

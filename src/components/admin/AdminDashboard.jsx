@@ -5,15 +5,19 @@ import OrderList from "./OrderList";
 import ProductList from "./ProductList";
 import ServiceList from "./ServiceList";
 import AddService from "./AddService";
+import Partner from "./Partner";
+import AddPartner from "./AddPartner";
 
 export default function AdminDashboard() {
   // Tabs data
   const tabs = [
     { id: 1, title: "Add Service", component: <AddService /> },
-    { id: 2, title: "ServiceList", component: <ServiceList /> },
-    { id: 3, title: "UsersList", component: <UserList /> },
-    { id: 4, title: "OrdersList", component: <OrderList /> },
-    { id: 5, title: "ProductsList", component: <ProductList /> },
+    { id: 2, title: "Service List", component: <ServiceList /> },
+    { id: 3, title: "Users List", component: <UserList /> },
+    { id: 4, title: "Orders List", component: <OrderList /> },
+    { id: 5, title: "Add Products", component: <ProductList /> },
+    { id: 7, title: "Add Partner", component: <AddPartner /> },
+    { id: 6, title: "Partner List", component: <Partner /> },
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0].id); // default first active

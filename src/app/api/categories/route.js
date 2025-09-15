@@ -5,13 +5,16 @@ import Category from "@/models/Category";
 export async function POST(req) {
   try {
     await dbConnect();
-    const { name } = await req.json();
+    const { name, description } = await req.json(); // get description
 
-    if (!name) {
-      return new Response(JSON.stringify({ error: "Category name is required" }), { status: 400 });
+    if (!name || !description) {
+      return new Response(
+        JSON.stringify({ error: "Category name and description are required" }),
+        { status: 400 }
+      );
     }
 
-    const newCategory = await Category.create({ name });
+    const newCategory = await Category.create({ name, description });
     return new Response(JSON.stringify(newCategory), { status: 201 });
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message }), { status: 500 });

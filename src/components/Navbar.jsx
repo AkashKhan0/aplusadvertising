@@ -50,9 +50,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#232f3e44] backdrop-blur-[5px] shadow-md fixed bottom-0 left-0 w-full z-50 flex items-center justify-center h-[50px]">
+    <nav className="bg-[#232f3e44] backdrop-blur-[5px] shadow-md fixed bottom-0 left-0 w-full z-50 flex items-center justify-center h-[50px] universal">
       {/* ei navbar section shudhu matro desktop view er jonno */}
-      <div className="container desktop_view mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="w-full fixed_width desktop_view mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-white">
           <Image
@@ -102,11 +102,6 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/contact" prefetch={true} className="nav_items">
-              Contact
-            </Link>
-          </li>
-          <li>
             <Link href="/profile" prefetch={true} className="nav_items">
               Profile
             </Link>
@@ -115,23 +110,8 @@ const Navbar = () => {
       </div>
 
       {/* ei section Mobile view er jonno */}
-      <div className="w-full h-full mobile_view">
-        <div className="w-full h-full flex items-center justify-between px-3">
-          <div className="w-full hidden sm:block md:block">
-            {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-white ">
-          <Image
-            src="/logo.png"
-            alt="My Business Logo"
-            width={180}
-            height={50}
-            className="w-[70px] h-[40px]"
-          />
-        </Link>
-          </div>
-
-
-          <div className="w-full flex items-center justify-center sm:justify-end md:justify-end gap-3">
+      <div className="w-full mobile_view">
+          <div className="w-full flex items-center justify-center gap-5">
             <Link href="/" prefetch={true} className="mobile_nav_items text-xl">
               <TbHomeFilled />
             </Link>
@@ -160,7 +140,6 @@ const Navbar = () => {
               <ImProfile />
             </Link>
           </div>
-        </div>
       </div>
 
 

@@ -6,15 +6,18 @@ export async function PUT(req, { params }) {
   try {
     await dbConnect();
     const { id } = params;
-    const { name } = await req.json();
+    const { name, description } = await req.json(); // get description
 
-    if (!name) {
-      return new Response(JSON.stringify({ error: "Name is required" }), { status: 400 });
+    if (!name || !description) {
+      return new Response(
+        JSON.stringify({ error: "Name and description are required" }),
+        { status: 400 }
+      );
     }
 
     const updated = await Category.findByIdAndUpdate(
       id,
-      { name },
+      { name, description },
       { new: true }
     );
 

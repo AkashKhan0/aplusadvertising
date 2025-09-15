@@ -81,7 +81,6 @@ body {
   }
   .mobile_view {
     display: block;
-    height: 100%;
   }
 }
 
@@ -136,4 +135,7 @@ button {
 }
 .baton:hover .bordersx {
   height: 50%;
+}
+.perspective-1000 {
+  perspective: 1000px;
 }
