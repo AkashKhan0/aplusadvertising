@@ -7,6 +7,7 @@ import "../../styles/globals.css";
 import Loaders from "@/components/Loaders";
 import LogoSlider from "@/components/LogoSlider";
 import Projects from "@/components/Projects";
+import TakeReview from "@/components/TakeReview";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ export default function Home() {
         <Service />
         <Projects />
         <LogoSlider/>
+        <TakeReview/>
       </div>
     </>
   );

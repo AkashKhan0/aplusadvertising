@@ -8,22 +8,36 @@ import Link from "next/link";
 
 export default function Projects() {
   const [active, setActive] = useState(null);
-  const [subCategories, setSubCategories] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(5); // default
 
-  // Fetch subcategories from your API
+  // Fetch projects from API
   const fetchSubCategories = async () => {
     try {
-      const res = await fetch("/api/subcategories"); // adjust API route if needed
+      const res = await fetch("/api/projects"); // adjust API route
       const data = await res.json();
-      setSubCategories(data);
-      if (data.length > 0) setActive(data[0]._id); // first one active
+      setProjects(data);
+      if (data.length > 0) setActive(data[0]._id);
     } catch (err) {
-      console.error("Error fetching subcategories:", err);
+      console.error("Error fetching projects:", err);
     }
   };
 
   useEffect(() => {
     fetchSubCategories();
+  }, []);
+
+  // Responsive logic
+  useEffect(() => {
+    const updateCount = () => {
+      const width = window.innerWidth;
+      if (width < 640) setVisibleCount(2); // Mobile
+      else if (width < 1024) setVisibleCount(3); // Tablet
+      else setVisibleCount(5); // Laptop/Desktop
+    };
+    updateCount();
+    window.addEventListener("resize", updateCount);
+    return () => window.removeEventListener("resize", updateCount);
   }, []);
 
   return (
@@ -64,20 +78,21 @@ export default function Projects() {
         <div className="flex flex-col sm:flex-col md:flex-row gap-5 mb-10 items-center mt-16 sm:mt-16 md:mt-10">
           <div className="w-full flex items-center justify-center">
             <div className="flex h-[400px] w-full overflow-hidden">
-              {subCategories.slice(0, 5).map((sub, index) => (
+              {projects.slice(0, visibleCount).map((sub, index) => (
                 <label
                   key={sub._id}
                   onClick={() => setActive(sub._id)}
                   className={`relative flex items-end rounded-2xl cursor-pointer shadow-xl transition-all duration-500 ease-[cubic-bezier(.28,-0.03,0,.99)] overflow-hidden mx-1 sm:mx-2
-              ${
-                active === sub._id
-                  ? "flex-[5]" // expands
-                  : "flex-[1]" // shrinks
-              }`}
+                    ${
+                      active === sub._id
+                        ? "flex-[5]" // expands
+                        : "flex-[1]" // shrinks
+                    }`}
                   style={{
                     backgroundImage: `url(${sub.image})`,
-                    backgroundSize: "cover",
+                    backgroundSize: "contain",
                     backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
                   }}
                 >
                   {/* Black overlay */}
