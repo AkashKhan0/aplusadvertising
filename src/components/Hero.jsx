@@ -48,6 +48,7 @@ export default function Hero() {
                     width={180}
                     height={50}
                     className="w-full"
+                    unoptimized
                   />
                 </div>
               </AnimationWrapper>
@@ -58,11 +59,11 @@ export default function Hero() {
               </AnimationWrapper>
               <AnimationWrapper direction="right">
                 <h1 className="text-lg sm:text-xl md:text-2xl title1 py-2">
-                    <AnimatedText
-                      text="The world is moving fast, are you keeping up?"
-                      from="right"
-                    />
-                  </h1>
+                  <AnimatedText
+                    text="The world is moving fast, are you keeping up?"
+                    from="right"
+                  />
+                </h1>
               </AnimationWrapper>
             </div>
           </div>

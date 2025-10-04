@@ -72,59 +72,60 @@ export default function Review({ onClose, onReviewAdded  }) {
 
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-[#000000ab] bg-opacity-50 rvw-box">
-      <div className="bg-white p-6 rounded w-96 relative">
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 hover:text-red-500"
-        >
-          <GiCrossMark />
-        </button>
+      <div className="bg-white/20 backdrop-blur-md border border-white/30 shadow-lg p-6 rounded-2xl w-96 relative">
+  <button
+    onClick={onClose}
+    className="absolute top-3 right-3 text-gray-200 hover:text-red-400"
+  >
+    <GiCrossMark />
+  </button>
 
-        <h2 className="text-lg font-bold mb-4">Write Your Review</h2>
+  <h2 className="text-lg font-bold mb-4 text-white">Write Your Review</h2>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="border w-full p-2"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Review"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="border w-full p-2"
-          />
+  <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      value={formData.name}
+      onChange={handleChange}
+      required
+      className="border w-full p-2 bg-white/40 text-black placeholder-gray-700 rounded"
+    />
+    <textarea
+      name="message"
+      placeholder="Your Review"
+      value={formData.message}
+      onChange={handleChange}
+      required
+      className="border w-full p-2 bg-white/40 text-black placeholder-gray-700 rounded"
+    />
 
-          <StarRating
-            value={formData.rating}
-            onChange={(rating) => setFormData({ ...formData, rating })}
-          />
+    <StarRating
+      value={formData.rating}
+      onChange={(rating) => setFormData({ ...formData, rating })}
+    />
 
-          {msg && (
-            <p
-              className={`text-sm ${
-                msgType === "success" ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              {msg}
-            </p>
-          )}
+    {msg && (
+      <p
+        className={`text-sm ${
+          msgType === "success" ? "text-green-400" : "text-red-400"
+        }`}
+      >
+        {msg}
+      </p>
+    )}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="px-4 py-2 bg-blue-500 text-white rounded"
-          >
-            {loading ? "Submitting..." : "Submit"}
-          </button>
-        </form>
-      </div>
+    <button
+      type="submit"
+      disabled={loading}
+      className="w-full px-4 py-2 bg-blue-500/80 hover:bg-blue-500 text-white rounded"
+    >
+      {loading ? "Submitting..." : "Submit"}
+    </button>
+  </form>
+</div>
+
     </div>
   );
 }

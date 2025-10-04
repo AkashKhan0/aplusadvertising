@@ -10,6 +10,8 @@ import AddPartner from "./AddPartner";
 import AddProject from "./AddProject";
 import ProjectList from "./ProjectList";
 import ReviewManager from "./ReviewManager";
+import FAQForm from "./FAQForm";
+import FAQList from "./FAQList";
 
 export default function AdminDashboard() {
   // Tabs data
@@ -23,7 +25,9 @@ export default function AdminDashboard() {
     { id: 7, title: "Partner List", component: <Partner /> },
     { id: 8, title: "Add Project", component: <AddProject /> },
     { id: 9, title: "Project List", component: <ProjectList /> },
-    { id: 10, title: "ReviewManager", component: <ReviewManager /> },
+    { id: 10, title: "Review Manager", component: <ReviewManager /> },
+    { id: 11, title: "Add Faq", component: <FAQForm /> },
+    { id: 12, title: "Add List", component: <FAQList /> },
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0].id); // default first active

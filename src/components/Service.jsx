@@ -48,6 +48,7 @@ export default function Service() {
                 width={20}
                 height={20}
                 className="mb-1"
+                unoptimized
               />
               <h1 className="text-base sm:text-lg md:text-xl font-bold uppercase flex items-center ">
                 <AnimatedText text="Our Services" from="left" />
@@ -90,7 +91,7 @@ export default function Service() {
           </div>
 
           {/* BookCard */}
-          <div className="w-full md:w-[75%] flex justify-center md:justify-center items-center mr-10 md:mr-0 mt-10 sm:mt-0 md:mt-0">
+          <div className="w-full md:w-[75%] flex justify-center md:justify-center items-center mr-10 md:mr-0 mt-10 sm:mt-10 md:mt-0">
             {activeCategory && (
               <BookCard
                 key={animateKey} // re-trigger animation

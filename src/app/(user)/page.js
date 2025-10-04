@@ -8,6 +8,7 @@ import Loaders from "@/components/Loaders";
 import LogoSlider from "@/components/LogoSlider";
 import Projects from "@/components/Projects";
 import TakeReview from "@/components/TakeReview";
+import Faq from "@/components/Faq";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ export default function Home() {
         <Projects />
         <LogoSlider/>
         <TakeReview/>
+        <Faq />
       </div>
     </>
   );

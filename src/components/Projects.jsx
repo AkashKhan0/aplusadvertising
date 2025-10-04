@@ -53,6 +53,7 @@ export default function Projects() {
                 width={20}
                 height={20}
                 className="mb-1"
+                unoptimized
               />
               <h1 className="text-base sm:text-lg md:text-xl font-bold uppercase flex items-center ">
                 <AnimatedText text="Our Projects" from="right" />
