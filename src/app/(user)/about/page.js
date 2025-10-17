@@ -1,3 +1,66 @@
+import About from "./About";
+
+export const metadata = {
+  title: "About Us - Aplus Asvertising Limited",
+  description:
+    "A Plus Advertising Limited - Expert web design, eCommerce, SEO & digital marketing to grow your business online",
+  keywords: [
+  "Website Design Bangladesh",
+  "Ecommerce Website Bangladesh",
+  "Business Website Design",
+  "Portfolio Website Bangladesh",
+  "Landing Page Design",
+  "Blog Website Development",
+  "News Portal Website",
+  "Medical Website Design",
+  "All Types of Website Design",
+  "WordPress Website Development",
+  "WooCommerce Website Bangladesh",
+  "WordPress Plugin Customization",
+  "WordPress Theme Development",
+  "Custom Website Solutions",
+  "Professional Website Developers",
+  "Affordable Website Design",
+  "High-Quality Website Services",
+  "SEO-Friendly Website Design",
+  "Responsive Website Design",
+  "Mobile-Friendly Website Design",
+  "Website Redesign Services",
+  "Website Fixing Services",
+  "Landing Page Optimization",
+  "Website Speed Optimization",
+  "Full-Service Web Design Agency",
+  "Digital Marketing Solutions Bangladesh",
+  "SEO Services Bangladesh",
+  "Website Content Writing",
+  "Facebook Boosting Campaigns",
+  "AI Marketing Solutions",
+  "AI-Powered Website Solutions",
+  "Ecommerce SEO Services",
+  "Social Media Marketing Bangladesh",
+  "Facebook Ads Management",
+  "WordPress Ecommerce Solutions",
+  "Online Business Website Development",
+  "Corporate Website Design",
+  "Small Business Website Solutions",
+  "Website Optimization Services",
+  "Website Branding and Design",
+  "Complete Website Solutions",
+  "Top Website Development Agency",
+  "Best Digital Marketing Agency Bangladesh",
+  "Professional Web Solutions",
+  "Website Marketing and SEO Services",
+  "Affordable Digital Agency",
+  "Top Web Design Company Bangladesh",
+  "High-Quality Website Solutions",
+  "AI Content Marketing Services",
+  "Website UI/UX Design",
+  "Website Maintenance Services",
+  "WooCommerce Store Setup Bangladesh"
+],
+
+};
+
 export default function Page() {
-  return <h1 className="text-3xl font-bold p-6">About Page</h1>;
+  return <About />;
 }

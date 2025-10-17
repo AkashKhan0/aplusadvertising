@@ -12,22 +12,26 @@ import ProjectList from "./ProjectList";
 import ReviewManager from "./ReviewManager";
 import FAQForm from "./FAQForm";
 import FAQList from "./FAQList";
+import Blogpost from "./Blogpost";
+import Blogpostlist from "./Blogpostlist";
 
 export default function AdminDashboard() {
   // Tabs data
   const tabs = [
     { id: 1, title: "Add Service", component: <AddService /> },
     { id: 2, title: "Service List", component: <ServiceList /> },
-    { id: 3, title: "Users List", component: <UserList /> },
-    { id: 4, title: "Orders List", component: <OrderList /> },
-    { id: 5, title: "Add Products", component: <ProductList /> },
-    { id: 6, title: "Add Partner", component: <AddPartner /> },
-    { id: 7, title: "Partner List", component: <Partner /> },
-    { id: 8, title: "Add Project", component: <AddProject /> },
-    { id: 9, title: "Project List", component: <ProjectList /> },
-    { id: 10, title: "Review Manager", component: <ReviewManager /> },
-    { id: 11, title: "Add Faq", component: <FAQForm /> },
-    { id: 12, title: "Add List", component: <FAQList /> },
+    { id: 3, title: "Add Template", component: <ProductList /> },
+    { id: 4, title: "Template List", component: <UserList /> },
+    { id: 5, title: "Add Partner", component: <AddPartner /> },
+    { id: 6, title: "Partner List", component: <Partner /> },
+    { id: 7, title: "Add Project", component: <AddProject /> },
+    { id: 8, title: "Project List", component: <ProjectList /> },
+    { id: 9, title: "Add Faq", component: <FAQForm /> },
+    { id: 10, title: "FAQ List", component: <FAQList /> },
+    { id: 11, title: "Review Manager", component: <ReviewManager /> },
+    { id: 12, title: "Orders List", component: <OrderList /> },
+    { id: 13, title: "Add Blog Post", component: <Blogpost /> },
+    { id: 14, title: "Blog Post List", component: <Blogpostlist /> },
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0].id); // default first active
@@ -43,9 +47,11 @@ export default function AdminDashboard() {
             {tabs.map((tab) => (
               <div
                 key={tab.id}
-                className={`cursor-pointer w-full py-1 px-2 font-semibold ${
+                className={`cursor-pointer w-full py-1 px-2 font-semibold  ${
                   activeTab === tab.id
                     ? "bg-[#CBD6EB] text-[#9C1F0E] font-semibold"
+                    : (tab.id + 1) % 2 === 0
+                    ? "bg-[#9c1f0e34] text-white"
                     : "hover:bg-[#9EAABD]"
                 }`}
                 onClick={() => setActiveTab(tab.id)}
@@ -54,9 +60,7 @@ export default function AdminDashboard() {
               </div>
             ))}
           </div>
-          <div className="right w-[80%] p-5">
-            {activeComponent}
-          </div>
+          <div className="right w-[80%] p-5">{activeComponent}</div>
         </div>
       </div>
     </>

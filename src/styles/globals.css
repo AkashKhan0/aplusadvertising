@@ -56,6 +56,7 @@ body {
 }
 .active_li {
   width: 100% !important;
+  color: #9c1f0e;
 }
 
 .mobile_nav_items {
@@ -67,6 +68,9 @@ body {
 .mobile_nav_items:hover {
   color: #9c1f0e;
   border-top: 1px solid red;
+}
+.mobile_nav_items_active {
+  color: #9c1f0e;
 }
 
 .mobile_icon_menu {
@@ -163,3 +167,52 @@ button {
 .perspective-1000 {
   perspective: 1000px;
 }
+
+
+/* contact page css */
+
+
+.cntleft {
+-webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+  -webkit-transform: preserve-3d;
+  -ms-transform: preserve-3d;
+  transform: preserve-3d;
+}
+
+.cntright {
+-webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+}
+
+.cntfrmcrd:hover .cntleft {
+  -webkit-transform: rotatey(-85deg);
+  -ms-transform: rotatey(-85deg);
+  transform: rotatey(-85deg);
+
+}
+.cntfrmcrd:hover .cntright {
+  transform: translateX(80px);
+}
+@media only screen and (max-width: 768px) {
+  .cntfrmcrd:hover .cntright {
+  transform: translateX(40px);
+}
+}
+@media only screen and (max-width: 500px) {
+  .cntfrmcrd:hover .cntright {
+  transform: translateX(40px);
+}
+}
+@media only screen and (max-width: 400px) {
+  .cntfrmcrd:hover .cntright {
+  transform: translateX(20px);
+}
+}
+
+.cntfrmcrd:hover .msgus {
+  opacity: 1;
+}
+

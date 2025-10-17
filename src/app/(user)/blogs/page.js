@@ -1,3 +1,65 @@
+import Blog from "./Blog";
+
+export const metadata = {
+  title: "Our Blog - Aplus Asvertising Limited",
+  description:
+    "A Plus Advertising Limited - Expert web design, eCommerce, SEO & digital marketing to grow your business online",
+  keywords: [
+  "Digital Marketing Blog Bangladesh",
+  "SEO Tips 2025",
+  "SEO Trends 2025",
+  "Best SEO Blog Topics",
+  "Website Design Ideas Blog",
+  "WordPress Tips and Tricks",
+  "WordPress Security Guide",
+  "WordPress Plugin Review",
+  "How to Improve Website Ranking",
+  "On-Page SEO Checklist",
+  "Off-Page SEO Strategies",
+  "Content Writing Tips for Website",
+  "Keyword Research for Beginners",
+  "Best AI Tools for SEO",
+  "How to Write SEO Friendly Blog",
+  "Importance of Website for Business",
+  "Small Business Website Tips",
+  "Ecommerce Marketing Blog",
+  "Facebook Ads Guide Bangladesh",
+  "Social Media Strategy 2025",
+  "Google Ads Optimization Tips",
+  "Website Redesign Benefits",
+  "How to Increase Website Traffic",
+  "Blog Ideas for Digital Marketing",
+  "Content Marketing Strategy",
+  "Online Business Growth Tips",
+  "Website Maintenance Guide",
+  "WordPress Speed Optimization Blog",
+  "Responsive Design Best Practices",
+  "User Experience Improvement",
+  "Brand Awareness Through Website",
+  "Local SEO Tips for Bangladesh",
+  "Link Building Strategy",
+  "Google Ranking Secrets",
+  "Mobile Friendly Website Tips",
+  "Website Content Strategy",
+  "How to Build Brand Online",
+  "Digital Transformation Blog",
+  "Modern Web Development Trends",
+  "Best Website Builder for Business",
+  "Importance of Blog in SEO",
+  "Website Design Inspiration",
+  "WordPress Beginner Guide",
+  "Website Optimization Checklist",
+  "SEO for WordPress Website",
+  "How to Write Engaging Blog Content",
+  "How to Grow Small Business Online",
+  "Marketing Automation Tools",
+  "Google Analytics Tips for Beginners",
+  "Website Copywriting Examples",
+  "Digital Marketing Success Stories"
+],
+
+};
+
 export default function Page() {
-  return <h1 className="text-3xl font-bold p-6">Blog Page</h1>;
+  return <Blog />;
 }

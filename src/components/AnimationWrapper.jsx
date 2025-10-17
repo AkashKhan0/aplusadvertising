@@ -29,7 +29,7 @@ const AnimationWrapper = ({ children, direction = "left" }) => {
       initial="hidden"
       whileInView="visible"
       exit="exit"
-      viewport={{ once: false, amount: 0.5 }} // joto tuku visible hobe, animation start
+      viewport={{ once: false, amount: 0.2 }} // joto tuku visible hobe, animation start
     >
       {children}
     </motion.div>

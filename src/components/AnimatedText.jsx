@@ -10,7 +10,7 @@ export default function AnimatedText({ text, from = "left" }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     if (textRef.current) observer.observe(textRef.current);
