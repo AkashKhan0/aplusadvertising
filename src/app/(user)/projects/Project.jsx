@@ -23,7 +23,7 @@ export default function Project() {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const res = await fetch("/api/projects"); // your backend route
+        const res = await fetch("/api/projects");
         const data = await res.json();
         setProjects(data);
       } catch (err) {
@@ -100,7 +100,7 @@ export default function Project() {
                     backgroundRepeat: "no-repeat",
                   }}
                 >
-                  {/* Top Bar (Desktop View) */}
+                  {/* Top Bar */}
                   <div className="bg-[#707070] relative flex flex-col w-full">
                     <div className="px-2 pt-1 flex items-start justify-between">
                       <div className="w-[50%] bg-[#9c9c9c] rounded-tl-lg rounded-tr-lg flex items-center justify-between px-2 text-white text-[12px]">
@@ -151,7 +151,6 @@ export default function Project() {
                     <div className="flex flex-col sm:flex-row md:flex-row items-center justify-between mt-4 gap-3">
                       {/* Icons */}
                       <div className="flex gap-5 text-xl">
-                        {/* Live View */}
                         <button
                           onClick={() => window.open(project.link, "_blank")}
                           className="hover:text-blue-400 transition-colors"
@@ -159,7 +158,6 @@ export default function Project() {
                           <FaExternalLinkAlt />
                         </button>
 
-                        {/* Quick View */}
                         <button
                           onClick={() => setQuickViewUrl(project.link)}
                           className="hover:text-green-400 transition-colors"
@@ -224,14 +222,21 @@ export default function Project() {
                     </a>
                   </p>
 
+                  {/* ✅ Updated Form */}
                   <form
                     onSubmit={async (e) => {
                       e.preventDefault();
                       const formData = new FormData(e.target);
                       const userName = formData.get("userName");
                       const userPhone = formData.get("userPhone");
-                      const userMessage = formData.get("userMessage");
                       const userEmail = formData.get("userEmail");
+                      const userMessage = formData.get("userMessage");
+
+                      const btn = e.target.querySelector(
+                        "button[type='submit']"
+                      );
+                      btn.disabled = true;
+                      btn.textContent = "Submitting...";
 
                       try {
                         const res = await fetch("/api/orderproject", {
@@ -243,21 +248,37 @@ export default function Project() {
                             projectUrl: selectedProject.link,
                             userName,
                             userPhone,
-                            userMessage,
                             userEmail,
+                            userMessage,
                           }),
                         });
 
                         const data = await res.json();
+
                         if (data.success) {
-                          alert("✅ Order Confirmed! We’ll contact you soon.");
-                          setSelectedProject(null);
+                          btn.textContent = "✅ Order Confirmed!";
+                          btn.classList.add("bg-green-600");
+                          e.target.reset();
+
+                          setTimeout(() => {
+                            setSelectedProject(null);
+                          }, 1500);
                         } else {
-                          alert("❌ Failed: " + data.message);
+                          btn.textContent = "❌ Failed, try again!";
+                          btn.classList.add("bg-red-600");
                         }
                       } catch (err) {
                         console.error(err);
-                        alert("Server error!");
+                        btn.textContent = "❌ Server Error!";
+                        btn.classList.add("bg-red-600");
+                      } finally {
+                        setTimeout(() => {
+                          if (btn) {
+                            btn.disabled = false;
+                            btn.textContent = "Confirm Request";
+                            btn.classList.remove("bg-green-600", "bg-red-600");
+                          }
+                        }, 2500);
                       }
                     }}
                   >
@@ -309,7 +330,7 @@ export default function Project() {
 
                     <button
                       type="submit"
-                      className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                      className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
                     >
                       Confirm Request
                     </button>
@@ -317,7 +338,6 @@ export default function Project() {
                 </div>
               </div>
             )}
-            {/* popup project form */}
           </div>
 
           {/* Bottom Section */}
