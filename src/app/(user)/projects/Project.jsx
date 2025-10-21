@@ -148,9 +148,8 @@ export default function Project() {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex flex-col sm:flex-row md:flex-row items-center justify-between mt-4 gap-3">
+                    <div className="flex items-center justify-evenly mt-4 gap-5">
                       {/* Icons */}
-                      <div className="flex gap-5 text-xl">
                         <button
                           onClick={() => window.open(project.link, "_blank")}
                           className="hover:text-blue-400 transition-colors"
@@ -164,8 +163,6 @@ export default function Project() {
                         >
                           <FaEye />
                         </button>
-                      </div>
-
                       {/* I want this */}
                       <button
                         onClick={() => setSelectedProject(project)}
