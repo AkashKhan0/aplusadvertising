@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import "../styles/animation.css"; // CSS file
+import "../styles/animation.css";
 
 export default function AnimatedText({ text, from = "left" }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,7 +10,7 @@ export default function AnimatedText({ text, from = "left" }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.1 }
+      { threshold: 0.03 }
     );
 
     if (textRef.current) observer.observe(textRef.current);
@@ -25,7 +25,7 @@ export default function AnimatedText({ text, from = "left" }) {
       className={`animated-text ${isVisible ? "show" : "hide"} ${from}`}
     >
       {text.split("").map((letter, i) => (
-        <span key={i} style={{ transitionDelay: `${i * 0.1}s` }}>
+        <span key={i} style={{ transitionDelay: `${i * 0.03}s` }}>
           {letter}
         </span>
       ))}

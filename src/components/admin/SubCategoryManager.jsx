@@ -5,40 +5,16 @@ import { MdDelete, MdOutlineDownloadDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 
 export default function SubCategoryManager() {
-  const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
-  const [activeTab, setActiveTab] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const [editId, setEditId] = useState(null);
   const [editForm, setEditForm] = useState({ title: "", description: "" });
 
-  // ✅ Fetch categories
-  const fetchCategories = async () => {
+  // ✅ Fetch all subcategories (no category filter)
+  const fetchSubCategories = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/categories");
-      const data = await res.json();
-      setCategories(data);
-
-      if (data.length > 0) {
-        setActiveTab(data[0]._id); // default first tab
-      } else {
-        setLoading(false);
-      }
-    } catch (error) {
-      console.error("Error fetching categories:", error);
-      setLoading(false);
-    }
-  };
-
-  // ✅ Fetch subcategories for active tab
-  const fetchSubCategories = async (categoryId) => {
-    try {
-      setLoading(true);
-      const res = await fetch(`/api/subcategories?categoryId=${categoryId}`, {
-        cache: "no-store", // 👈 disable caching to always get fresh data
-      });
+      const res = await fetch(`/api/subcategories`, { cache: "no-store" });
       const data = await res.json();
       setSubCategories(data);
     } catch (error) {
@@ -49,27 +25,22 @@ export default function SubCategoryManager() {
   };
 
   useEffect(() => {
-    fetchCategories();
+    fetchSubCategories();
   }, []);
-
-  useEffect(() => {
-    if (activeTab) fetchSubCategories(activeTab);
-  }, [activeTab]);
 
   // ✅ Listen for "subcategories:refresh" events
   useEffect(() => {
-    const handleRefresh = () => {
-      if (activeTab) fetchSubCategories(activeTab);
-    };
+    const handleRefresh = () => fetchSubCategories();
     window.addEventListener("subcategories:refresh", handleRefresh);
-    return () => window.removeEventListener("subcategories:refresh", handleRefresh);
-  }, [activeTab]);
+    return () =>
+      window.removeEventListener("subcategories:refresh", handleRefresh);
+  }, []);
 
   // ✅ Handle delete
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this subcategory?")) return;
     const res = await fetch(`/api/subcategories/${id}`, { method: "DELETE" });
-    if (res.ok) fetchSubCategories(activeTab);
+    if (res.ok) fetchSubCategories();
   };
 
   // ✅ Handle update
@@ -82,29 +53,12 @@ export default function SubCategoryManager() {
     if (res.ok) {
       setEditId(null);
       setEditForm({ title: "", description: "" });
-      fetchSubCategories(activeTab);
+      fetchSubCategories();
     }
   };
 
   return (
     <div className="w-full">
-      {/* Tabs */}
-      <div className="flex gap-2 mb-5 flex-wrap">
-        {categories.map((cat) => (
-          <button
-            key={cat._id}
-            onClick={() => setActiveTab(cat._id)}
-            className={`px-4 py-2 rounded ${
-              activeTab === cat._id
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 text-black"
-            }`}
-          >
-            {cat.name}
-          </button>
-        ))}
-      </div>
-
       {/* Loading / Data */}
       {loading ? (
         <div className="text-center py-5 text-gray-500 animate-pulse">
