@@ -121,20 +121,17 @@ export default function Plan() {
   return (
     <div className="universal mb-[50px]">
       <div className="fixed_width px-5 sm:px-2 md:px-2">
-
-
         <div className="w-full flex flex-col items-center justify-center my-5 p-5">
           <AnimationWrapper direction="left">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
-              <AnimatedText
-                text="Customize Your Website Plan"
-                from="right"
-              />
+              <AnimatedText text="Customize Your Website Plan" from="right" />
             </h1>
           </AnimationWrapper>
-          <p className="text-lg">Submit your customized plan, and our team will reach out shortly to discuss the details and bring your perfect project to life.</p>
+          <p className="text-lg">
+            Submit your customized plan, and our team will reach out shortly to
+            discuss the details and bring your perfect project to life.
+          </p>
         </div>
-
 
         <div className="grid md:grid-cols-2 gap-6 my-5">
           {/* LEFT SIDE (Scrollable) */}
@@ -325,39 +322,43 @@ function Category({
       : form[field].some((v) => v.startsWith("Others:"));
 
   return (
-    <div>
-      <h3 className="font-semibold text-lg">{title}</h3>
-      {options.map((item) => (
-        <label key={item} className="block">
-          <input
-            type={type}
-            name={field}
-            checked={form[field].includes?.(item) || form[field] === item}
-            onChange={() => toggle(field, item, type === "radio")}
-          />{" "}
-          {item}
-        </label>
-      ))}
+    <div className="universal mb-[50px]">
+      <div className="fixed_width px-5 sm:px-2 md:px-2">
+        <div>
+          <h3 className="font-semibold text-lg">{title}</h3>
+          {options.map((item) => (
+            <label key={item} className="block">
+              <input
+                type={type}
+                name={field}
+                checked={form[field].includes?.(item) || form[field] === item}
+                onChange={() => toggle(field, item, type === "radio")}
+              />{" "}
+              {item}
+            </label>
+          ))}
 
-      <label className="block mt-1">
-        <input
-          type={type}
-          name={field}
-          checked={othersSelected}
-          onChange={() => toggleOthers(field)}
-        />{" "}
-        Others
-      </label>
+          <label className="block mt-1">
+            <input
+              type={type}
+              name={field}
+              checked={othersSelected}
+              onChange={() => toggleOthers(field)}
+            />{" "}
+            Others
+          </label>
 
-      {othersSelected && (
-        <input
-          type="text"
-          placeholder={`Custom ${title.toLowerCase()}...`}
-          value={customInputs[field]}
-          onChange={(e) => handleOthersInput(field, e.target.value)}
-          className="mt-1 w-full border rounded p-2 text-sm"
-        />
-      )}
+          {othersSelected && (
+            <input
+              type="text"
+              placeholder={`Custom ${title.toLowerCase()}...`}
+              value={customInputs[field]}
+              onChange={(e) => handleOthersInput(field, e.target.value)}
+              className="mt-1 w-full border rounded p-2 text-sm"
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 }

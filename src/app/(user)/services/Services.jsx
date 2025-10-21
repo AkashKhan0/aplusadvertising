@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-
 import AnimatedText from "@/components/AnimatedText";
 import AnimationWrapper from "@/components/AnimationWrapper";
 import { GoDash } from "react-icons/go";
@@ -15,12 +14,20 @@ import ButtonLink from "@/components/ButtonLink";
 export default function Services() {
   const [subCategories, setSubCategories] = useState([]);
   const [selectedSub, setSelectedSub] = useState(null);
+  const [loading, setLoading] = useState(true); // ✅ loading state
 
   // fetch all subcategories
   const fetchSubCategories = async () => {
-    const res = await fetch("/api/subcategories");
-    const data = await res.json();
-    setSubCategories(data);
+    try {
+      setLoading(true);
+      const res = await fetch("/api/subcategories");
+      const data = await res.json();
+      setSubCategories(data);
+    } catch (err) {
+      console.error("Error fetching subcategories:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -50,14 +57,25 @@ export default function Services() {
             </AnimationWrapper>
 
             <div className="mt-10 p-5 w-full">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {subCategories.length > 0 ? (
-                  subCategories.map((sub) => (
+              {/* ✅ Loading State */}
+              {loading ? (
+                <div className="flex items-center justify-center py-10">
+                  <div className="flex flex-col items-center">
+                    <div className="w-10 h-10 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                    <p className="mt-3 text-gray-600 font-medium">
+                      Loading subcategories...
+                    </p>
+                  </div>
+                </div>
+              ) : subCategories.length > 0 ? (
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {subCategories.map((sub) => (
                     <div key={sub._id} className="flex flex-col">
+                      {/* Top Bar */}
                       <div className="bg-[#707070] relative flex flex-col w-full">
                         <div className="px-2 pt-1 flex items-start justify-between">
                           <div className="w-[50%] bg-[#9c9c9c] rounded-tl-lg rounded-tr-lg flex items-center justify-between px-2 text-white text-[12px]">
-                            <p className="">APlus Advertising</p>
+                            <p>APlus Advertising</p>
                             <IoMdClose />
                           </div>
                           <div className="w-[50%] flex items-center justify-end gap-2.5 text-sm text-white">
@@ -68,13 +86,17 @@ export default function Services() {
                         </div>
 
                         <div className="px-2 py-1 bg-[#9c9c9c] flex items-center justify-between gap-2.5">
-                          <div className="flex items-center justify-between text-white text-sm gap-2.5">
+                          <div className="flex items-center text-white text-sm gap-2.5">
                             <IoIosArrowBack />
                             <IoIosArrowForward />
                             <GrRefresh />
                           </div>
-                          <div className="rounded-full bg-[#707070] flex items-center justify-between gap-2.5 text-white px-2 text-[12px]">
-                            <p className="">{sub.title.length > 10 ? sub.title.slice(0, 10) + "..." : sub.title}</p>
+                          <div className="rounded-full bg-[#707070] flex items-center gap-2.5 text-white px-2 text-[12px]">
+                            <p>
+                              {sub.title.length > 10
+                                ? sub.title.slice(0, 10) + "..."
+                                : sub.title}
+                            </p>
                             <IoMdClose />
                           </div>
                           <div className="text-white">
@@ -83,8 +105,8 @@ export default function Services() {
                         </div>
                       </div>
 
+                      {/* Card Body */}
                       <div className="bg-[#A2B2D1] p-5 flex flex-col items-center justify-center text-center h-full">
-                        {/* Image */}
                         <div className="w-full h-28 flex-shrink-0">
                           <img
                             src={sub.image}
@@ -92,7 +114,7 @@ export default function Services() {
                             className="w-full h-full object-contain"
                           />
                         </div>
-                        {/* Title & Description */}
+
                         <div className="flex-1 flex flex-col">
                           <h1 className="text-lg sm:text-xl md:text-xl font-semibold text-center my-2">
                             <AnimatedText text={sub.title} from="right" />
@@ -102,6 +124,7 @@ export default function Services() {
                             {sub.description.split(" ").length > 15 && "..."}
                           </p>
                         </div>
+
                         <button
                           className="text-sm border mt-4 px-5 py-1"
                           onClick={() => setSelectedSub(sub)}
@@ -110,13 +133,13 @@ export default function Services() {
                         </button>
                       </div>
                     </div>
-                  ))
-                ) : (
-                  <p className="text-gray-500 text-center">
-                    No subcategories found.
-                  </p>
-                )}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 text-center py-10">
+                  No subcategories found.
+                </p>
+              )}
             </div>
 
             {/* Popup Modal */}
@@ -136,8 +159,7 @@ export default function Services() {
                     <img
                       src={selectedSub.image}
                       alt={selectedSub.title}
-                      className="w-28 h-28 object-cover 
-           [shape-outside:circle()] rounded-full mb-4 float-left mr-5"
+                      className="w-28 h-28 object-cover rounded-full mb-4 float-left mr-5"
                     />
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
                       {selectedSub.title}
@@ -151,6 +173,7 @@ export default function Services() {
               </div>
             )}
 
+            {/* Bottom Section */}
             <div className="mt-10">
               <AnimationWrapper direction="left">
                 <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center">
@@ -170,8 +193,8 @@ export default function Services() {
                 </h1>
 
                 <div className="w-full flex items-center justify-center mt-5">
-                <ButtonLink href="/plans" text="Let's visit" />
-              </div>
+                  <ButtonLink href="/plans" text="Let's visit" />
+                </div>
               </AnimationWrapper>
             </div>
           </div>

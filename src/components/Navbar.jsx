@@ -88,7 +88,13 @@ const Navbar = () => {
             <div
               className={`li_hover ${isActive("/services") ? "active_li" : ""}`}
             ></div>
-            <Link href="/services" prefetch={true} className={`nav_items ${isActive("/services") ? "active_li" : ""}`}>
+            <Link
+              href="/services"
+              prefetch={true}
+              className={`nav_items ${
+                isActive("/services") ? "active_li" : ""
+              }`}
+            >
               Services
             </Link>
           </li>
@@ -96,7 +102,11 @@ const Navbar = () => {
             <div
               className={`li_hover ${isActive("/blogs") ? "active_li" : ""}`}
             ></div>
-            <Link href="/blogs" prefetch={true} className={`nav_items ${isActive("/blogs") ? "active_li" : ""}`}>
+            <Link
+              href="/blogs"
+              prefetch={true}
+              className={`nav_items ${isActive("/blogs") ? "active_li" : ""}`}
+            >
               Blogs
             </Link>
           </li>
@@ -104,7 +114,13 @@ const Navbar = () => {
             <div
               className={`li_hover ${isActive("/projects") ? "active_li" : ""}`}
             ></div>
-            <Link href="/projects" prefetch={true} className={`nav_items ${isActive("/projects") ? "active_li" : ""}`}>
+            <Link
+              href="/projects"
+              prefetch={true}
+              className={`nav_items ${
+                isActive("/projects") ? "active_li" : ""
+              }`}
+            >
               Projects
             </Link>
           </li>
@@ -114,7 +130,13 @@ const Navbar = () => {
                 isActive("/templates") ? "active_li" : ""
               }`}
             ></div>
-            <Link href="/templates" prefetch={true} className={`nav_items ${isActive("/templates") ? "active_li" : ""}`}>
+            <Link
+              href="/templates"
+              prefetch={true}
+              className={`nav_items ${
+                isActive("/templates") ? "active_li" : ""
+              }`}
+            >
               Templates
             </Link>
           </li>
@@ -122,7 +144,11 @@ const Navbar = () => {
             <div
               className={`li_hover ${isActive("/plans") ? "active_li" : ""}`}
             ></div>
-            <Link href="/plans" prefetch={true} className={`nav_items ${isActive("/plans") ? "active_li" : ""}`}>
+            <Link
+              href="/plans"
+              prefetch={true}
+              className={`nav_items ${isActive("/plans") ? "active_li" : ""}`}
+            >
               Your Plans
             </Link>
           </li>
@@ -130,7 +156,11 @@ const Navbar = () => {
             <div
               className={`li_hover ${isActive("/about") ? "active_li" : ""}`}
             ></div>
-            <Link href="/about" prefetch={true} className={`nav_items ${isActive("/about") ? "active_li" : ""}`}>
+            <Link
+              href="/about"
+              prefetch={true}
+              className={`nav_items ${isActive("/about") ? "active_li" : ""}`}
+            >
               About
             </Link>
           </li>
@@ -138,7 +168,11 @@ const Navbar = () => {
             <div
               className={`li_hover ${isActive("/contact") ? "active_li" : ""}`}
             ></div>
-            <Link href="/contact" prefetch={true} className={`nav_items ${isActive("/contact") ? "active_li" : ""}`}>
+            <Link
+              href="/contact"
+              prefetch={true}
+              className={`nav_items ${isActive("/contact") ? "active_li" : ""}`}
+            >
               Contact
             </Link>
           </li>
@@ -176,6 +210,8 @@ const Navbar = () => {
             >
               <MdConnectWithoutContact />
             </Link>
+
+            {/* Dropdown Menu */}
             <div ref={menuRef} className="relative mobile_nav_items">
               <div
                 onClick={() => setOpen(!open)}
@@ -186,47 +222,56 @@ const Navbar = () => {
 
               <div
                 className={`absolute bottom-[40px] right-0 flex flex-col gap-2 mobile_icon_menu px-0.5
-        ${open ? "scale-y-100 duration-500" : "scale-y-0 duration-500"}`}
+            ${open ? "scale-y-100 duration-500" : "scale-y-0 duration-500"}`}
               >
-                <Link ref={menuRef}
+                <Link
                   href="/services"
                   prefetch={true}
+                  onClick={() => setOpen(false)} // ✅ close menu after click
                   className={`mobile_nav_items text-lg sm:text-xl md:text-2xl ${
                     isActive("/services") ? "mobile_nav_items_active" : ""
                   }`}
                 >
                   <GrServices />
                 </Link>
-                <Link ref={menuRef}
+
+                <Link
                   href="/blogs"
                   prefetch={true}
+                  onClick={() => setOpen(false)} // ✅
                   className={`mobile_nav_items text-lg sm:text-xl md:text-2xl ${
                     isActive("/blogs") ? "mobile_nav_items_active" : ""
                   }`}
                 >
                   <LiaBlogSolid />
                 </Link>
-                <Link ref={menuRef}
+
+                <Link
                   href="/projects"
                   prefetch={true}
+                  onClick={() => setOpen(false)} // ✅
                   className={`mobile_nav_items text-lg sm:text-xl md:text-2xl ${
                     isActive("/projects") ? "mobile_nav_items_active" : ""
                   }`}
                 >
                   <FaDiagramProject />
                 </Link>
-                <Link ref={menuRef}
+
+                <Link
                   href="/templates"
                   prefetch={true}
+                  onClick={() => setOpen(false)} // ✅
                   className={`mobile_nav_items text-lg sm:text-xl md:text-2xl ${
                     isActive("/templates") ? "mobile_nav_items_active" : ""
                   }`}
                 >
                   <HiTemplate />
                 </Link>
-                <Link ref={menuRef}
+
+                <Link
                   href="/plans"
                   prefetch={true}
+                  onClick={() => setOpen(false)} // ✅
                   className={`mobile_nav_items text-lg sm:text-xl md:text-2xl ${
                     isActive("/plans") ? "mobile_nav_items_active" : ""
                   }`}

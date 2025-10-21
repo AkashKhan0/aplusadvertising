@@ -8,25 +8,42 @@ export default function SubCategoryManager() {
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [activeTab, setActiveTab] = useState(null);
+  const [loading, setLoading] = useState(true); // ✅ loading state
 
   const [editId, setEditId] = useState(null);
   const [editForm, setEditForm] = useState({ title: "", description: "" });
 
-  // Fetch categories
+  // ✅ Fetch categories
   const fetchCategories = async () => {
-    const res = await fetch("/api/categories");
-    const data = await res.json();
-    setCategories(data);
-    if (data.length > 0) {
-      setActiveTab(data[0]._id); // default first tab active
+    try {
+      setLoading(true);
+      const res = await fetch("/api/categories");
+      const data = await res.json();
+      setCategories(data);
+
+      if (data.length > 0) {
+        setActiveTab(data[0]._id); // default first tab active
+      } else {
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+      setLoading(false);
     }
   };
 
-  // Fetch subcategories for active tab
+  // ✅ Fetch subcategories for active tab
   const fetchSubCategories = async (categoryId) => {
-    const res = await fetch(`/api/subcategories?categoryId=${categoryId}`);
-    const data = await res.json();
-    setSubCategories(data);
+    try {
+      setLoading(true);
+      const res = await fetch(`/api/subcategories?categoryId=${categoryId}`);
+      const data = await res.json();
+      setSubCategories(data);
+    } catch (error) {
+      console.error("Error fetching subcategories:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -39,7 +56,7 @@ export default function SubCategoryManager() {
     }
   }, [activeTab]);
 
-  // Handle delete
+  // ✅ Handle delete
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this subcategory?")) return;
     const res = await fetch(`/api/subcategories/${id}`, { method: "DELETE" });
@@ -48,7 +65,7 @@ export default function SubCategoryManager() {
     }
   };
 
-  // Handle update
+  // ✅ Handle update
   const handleUpdate = async (id) => {
     const res = await fetch(`/api/subcategories/${id}`, {
       method: "PUT",
@@ -81,10 +98,14 @@ export default function SubCategoryManager() {
         ))}
       </div>
 
-      {/* Subcategory list */}
-      <div className="flex flex-col gap-2.5">
-        {subCategories.length > 0 ? (
-          subCategories.map((sub) => (
+      {/* ✅ Show loading first */}
+      {loading ? (
+        <div className="text-center py-5 text-gray-500 animate-pulse">
+          Loading...
+        </div>
+      ) : subCategories.length > 0 ? (
+        <div className="flex flex-col gap-2.5">
+          {subCategories.map((sub) => (
             <div
               key={sub._id}
               className="w-full bg-[#A2B2D1] rounded-[4px] p-2 flex items-center justify-between gap-2.5"
@@ -176,11 +197,13 @@ export default function SubCategoryManager() {
                 )}
               </div>
             </div>
-          ))
-        ) : (
-          <p className="text-gray-500">No subcategories found.</p>
-        )}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-500 text-center py-4">
+          No subcategories found.
+        </p>
+      )}
     </div>
   );
 }
