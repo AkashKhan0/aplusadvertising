@@ -8,7 +8,7 @@ export default function SubCategoryManager() {
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [activeTab, setActiveTab] = useState(null);
-  const [loading, setLoading] = useState(true); // ✅ loading state
+  const [loading, setLoading] = useState(true);
 
   const [editId, setEditId] = useState(null);
   const [editForm, setEditForm] = useState({ title: "", description: "" });
@@ -22,7 +22,7 @@ export default function SubCategoryManager() {
       setCategories(data);
 
       if (data.length > 0) {
-        setActiveTab(data[0]._id); // default first tab active
+        setActiveTab(data[0]._id); // default first tab
       } else {
         setLoading(false);
       }
@@ -36,7 +36,9 @@ export default function SubCategoryManager() {
   const fetchSubCategories = async (categoryId) => {
     try {
       setLoading(true);
-      const res = await fetch(`/api/subcategories?categoryId=${categoryId}`);
+      const res = await fetch(`/api/subcategories?categoryId=${categoryId}`, {
+        cache: "no-store", // 👈 disable caching to always get fresh data
+      });
       const data = await res.json();
       setSubCategories(data);
     } catch (error) {
@@ -51,18 +53,23 @@ export default function SubCategoryManager() {
   }, []);
 
   useEffect(() => {
-    if (activeTab) {
-      fetchSubCategories(activeTab);
-    }
+    if (activeTab) fetchSubCategories(activeTab);
+  }, [activeTab]);
+
+  // ✅ Listen for "subcategories:refresh" events
+  useEffect(() => {
+    const handleRefresh = () => {
+      if (activeTab) fetchSubCategories(activeTab);
+    };
+    window.addEventListener("subcategories:refresh", handleRefresh);
+    return () => window.removeEventListener("subcategories:refresh", handleRefresh);
   }, [activeTab]);
 
   // ✅ Handle delete
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this subcategory?")) return;
     const res = await fetch(`/api/subcategories/${id}`, { method: "DELETE" });
-    if (res.ok) {
-      fetchSubCategories(activeTab);
-    }
+    if (res.ok) fetchSubCategories(activeTab);
   };
 
   // ✅ Handle update
@@ -98,7 +105,7 @@ export default function SubCategoryManager() {
         ))}
       </div>
 
-      {/* ✅ Show loading first */}
+      {/* Loading / Data */}
       {loading ? (
         <div className="text-center py-5 text-gray-500 animate-pulse">
           Loading...
@@ -119,7 +126,7 @@ export default function SubCategoryManager() {
                 />
               </div>
 
-              {/* Title, Description & Edit Form */}
+              {/* Title & Description */}
               <div className="flex-1 flex flex-col">
                 {editId === sub._id ? (
                   <>
