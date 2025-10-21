@@ -1,33 +1,43 @@
+// src/app/api/subcategories/route.js
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/mongodb";
 import SubCategory from "@/models/subCategory";
 
-export const dynamic = "force-dynamic";
-
 export async function GET(req) {
+  await dbConnect();
   try {
-    console.log("🔹 [API] /api/subcategories called");
-
-    await dbConnect();
-    console.log("✅ MongoDB connected");
-
     const { searchParams } = new URL(req.url);
     const categoryId = searchParams.get("categoryId");
 
     const filter = categoryId ? { categoryId } : {};
-
     const subs = await SubCategory.find(filter)
-      .populate("categoryId", "name")
-      .sort({ createdAt: -1 })
-      .lean();
+      .populate("categoryId", "name") // populate category name
+      .sort({ createdAt: -1 });
 
-    console.log("✅ Subcategories found:", subs.length);
     return NextResponse.json(subs, { status: 200 });
   } catch (err) {
-    console.error("❌ GET /api/subcategories error:", err);
-    return NextResponse.json(
-      { error: "Failed to load subcategories", details: err.message },
-      { status: 500 }
-    );
+    console.error("GET /subcategories error:", err);
+    return NextResponse.json({ error: err.message }, { status: 500 });
+  }
+}
+
+export async function POST(req) {
+  await dbConnect();
+  try {
+    const body = await req.json();
+
+    const { categoryId, title, description, image } = body;
+    if (!categoryId || !title || !description || !image) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
+
+    const newSub = await SubCategory.create(body);
+    return NextResponse.json(newSub, { status: 201 });
+  } catch (err) {
+    console.error("POST /subcategories error:", err);
+    return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
