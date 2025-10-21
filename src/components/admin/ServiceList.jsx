@@ -134,7 +134,7 @@ export default function ServiceList() {
           </h1>
 
           <div className="w-full flex flex-col gap-2.5">
-            <SubCategoryManager mainCategories={categories} />
+            <SubCategoryManager />
           </div>
         </div>
       </div>
