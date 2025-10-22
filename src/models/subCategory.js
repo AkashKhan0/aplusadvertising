@@ -1,7 +1,7 @@
 // src/models/subCategory.js
 import mongoose from "mongoose";
 
-const subCategorySchema = new mongoose.Schema(
+const SubCategorySchema = new mongoose.Schema(
   {
     categoryId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -31,6 +31,6 @@ const subCategorySchema = new mongoose.Schema(
 
 const SubCategory =
   mongoose.models.SubCategory ||
-  mongoose.model("SubCategory", subCategorySchema);
+  mongoose.model("SubCategory", SubCategorySchema);
 
 export default SubCategory;
