@@ -9,16 +9,24 @@ export default function SubCategoryManager() {
   const [loading, setLoading] = useState(true);
   const [editId, setEditId] = useState(null);
   const [editForm, setEditForm] = useState({ title: "", description: "" });
+  const [error, setError] = useState("");
 
-  // ✅ Fetch all subcategories (no category filter)
+  // ✅ Fetch all subcategories
   const fetchSubCategories = async () => {
     try {
       setLoading(true);
       const res = await fetch(`/api/subcategories`, { cache: "no-store" });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || "Failed to fetch subcategories");
+      }
+
       const data = await res.json();
       setSubCategories(data);
-    } catch (error) {
-      console.error("Error fetching subcategories:", error);
+    } catch (err) {
+      console.error("Fetch Error:", err);
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -28,7 +36,7 @@ export default function SubCategoryManager() {
     fetchSubCategories();
   }, []);
 
-  // ✅ Listen for "subcategories:refresh" events
+  // ✅ Refresh listener
   useEffect(() => {
     const handleRefresh = () => fetchSubCategories();
     window.addEventListener("subcategories:refresh", handleRefresh);
@@ -39,31 +47,47 @@ export default function SubCategoryManager() {
   // ✅ Handle delete
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this subcategory?")) return;
-    const res = await fetch(`/api/subcategories/${id}`, { method: "DELETE" });
-    if (res.ok) fetchSubCategories();
+    try {
+      const res = await fetch(`/api/subcategories/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error("Failed to delete subcategory");
+      await fetchSubCategories();
+    } catch (err) {
+      console.error("Delete Error:", err);
+      alert(err.message);
+    }
   };
 
   // ✅ Handle update
   const handleUpdate = async (id) => {
-    const res = await fetch(`/api/subcategories/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(editForm),
-    });
-    if (res.ok) {
+    try {
+      const res = await fetch(`/api/subcategories/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(editForm),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || "Failed to update subcategory");
+      }
+
       setEditId(null);
       setEditForm({ title: "", description: "" });
-      fetchSubCategories();
+      await fetchSubCategories();
+    } catch (err) {
+      console.error("Update Error:", err);
+      alert(err.message);
     }
   };
 
   return (
     <div className="w-full">
-      {/* Loading / Data */}
       {loading ? (
         <div className="text-center py-5 text-gray-500 animate-pulse">
           Loading...
         </div>
+      ) : error ? (
+        <div className="text-center text-red-500 py-4">{error}</div>
       ) : subCategories.length > 0 ? (
         <div className="flex flex-col gap-2.5">
           {subCategories.map((sub) => (
@@ -91,6 +115,7 @@ export default function SubCategoryManager() {
                         setEditForm({ ...editForm, title: e.target.value })
                       }
                       className="px-2 py-1 border mb-1 rounded"
+                      placeholder="Title"
                     />
                     <textarea
                       value={editForm.description}
@@ -101,6 +126,7 @@ export default function SubCategoryManager() {
                         })
                       }
                       className="px-2 py-1 border mb-1 rounded"
+                      placeholder="Description"
                     />
                   </>
                 ) : (
@@ -108,13 +134,13 @@ export default function SubCategoryManager() {
                     <h2 className="capitalize font-semibold">{sub.title}</h2>
                     <p className="text-sm text-gray-600">
                       {sub.description.split(" ").slice(0, 10).join(" ")}
-                      {sub.description.split(" ").length > 10 && "..."}
+                      {sub.description.split(" ").length > 10 && "…"}
                     </p>
                   </>
                 )}
               </div>
 
-              {/* Action buttons */}
+              {/* Actions */}
               <div className="flex items-center gap-2.5">
                 {editId === sub._id ? (
                   <>
