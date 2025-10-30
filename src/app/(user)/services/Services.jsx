@@ -42,17 +42,23 @@ export default function Services() {
             <AnimationWrapper direction="left">
               <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center">
                 <AnimatedText
-                  text="We Build, Rank & Market Your Brand!"
+                  text="We Build, Rank & Market Your Brand"
                   from="right"
                 />
               </h1>
               <p className="text-center text-lg font-medium my-5">
-                At A Plus Advertising Limited, we help businesses grow with
-                professional Website Development, SEO, and Marketing services. A
-                powerful website builds your brand identity, SEO ensures
-                visibility on search engines, and strategic marketing brings
-                customers directly to you. Choosing us means measurable results,
-                long-term success, and services crafted better than the rest.
+                A Plus Advertising Limited helps your business grow through
+                professional Website Development, SEO, and Digital Marketing
+                services. We design high-performing websites that strengthen
+                your brand identity, implement SEO strategies that boost your
+                Google rankings, and launch data-driven marketing campaigns that
+                attract the right customers.
+              </p>
+              <p className="text-center text-lg font-medium my-2">
+                Our approach turns online visibility into measurable growth;
+                every project is built for speed, SEO, and long-term success.
+                Choosing A Plus means partnering with experts who focus on
+                results, reliability, and return on investment, not just clicks.
               </p>
             </AnimationWrapper>
 

@@ -56,13 +56,20 @@ export default function Contact() {
           <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold text-center my-5">
             <AnimatedText text="Contact Us" from="right" />
           </h1>
+        </AnimationWrapper>
+        <AnimationWrapper direction="right">
           <p className="text-center text-lg font-medium mb-2">
-            We’d love to hear from you! Whether you have a question about our
-            services, need assistance, or just want to share your feedback,
-            our team is here to help. Fill out the form below or reach out to
-            us directly through email or phone. We’ll get back to you as soon
-            as possible and make sure your experience with us is smooth and
-            satisfying.
+            We’d love to hear from you! Whether you have a question about our web development, SEO, or digital marketing services, need assistance, or want to share feedback, our team at A Plus Advertising Limited is here to help.
+          </p>
+        </AnimationWrapper>
+        <AnimationWrapper direction="left">
+          <p className="text-center text-lg font-medium mb-2">
+            Fill out the contact form below or reach us directly via email or phone. Our experts will respond promptly to ensure your experience with us is smooth, efficient, and satisfying.
+          </p>
+        </AnimationWrapper>
+        <AnimationWrapper direction="right">
+          <p className="text-center text-lg font-medium mb-2">
+            Get in touch today and let us help your business grow online, enhance visibility, and achieve measurable results.
           </p>
         </AnimationWrapper>
 

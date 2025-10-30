@@ -13,7 +13,7 @@ export default function AdminLayout({ children }) {
       {/* Sidebar */}
       <html lang="en" className="scroll-smooth">
       <body className={``}>
-        <main className=""><SmoothScrollProvider>{children}</SmoothScrollProvider></main>
+        <main className=""><>{children}</></main>
       </body>
     </html>
     </>

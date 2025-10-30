@@ -11,9 +11,9 @@
   outline: none;
   font-family: "berlin", "berlin Fallback";
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 body {
   background-color: #cbd6eb;
   color: #181520;
@@ -126,6 +126,7 @@ body {
 .fixed_width {
   width: 100%;
   max-width: 1280px;
+  overflow: hidden;
 }
 
 .title1 {

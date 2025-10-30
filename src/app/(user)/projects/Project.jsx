@@ -47,16 +47,20 @@ export default function Project() {
                   text="Let’s turn your vision into Reality!"
                   from="right"
                 />
-              </h1>
+              </h1>              
+            </AnimationWrapper>
+            
+            <AnimationWrapper direction="right">
               <p className="text-center text-lg font-medium my-5">
-                Have a design idea or a website plan in mind? We’d love to see
-                it! If you have a theme, reference, or layout you want us to
-                follow, just share it with us. Our team will bring your vision
-                to life with skill and creativity. Don’t have a design plan yet?
-                No worries! You can pick from our ready-made templates or let us
-                create a unique design that fits your brand perfectly. Whatever
-                you choose, we’ll ensure your website stands out clean, modern,
-                and professional.
+                Have a website design idea or layout plan in mind? We’d love to see it!
+At A Plus Advertising Limited, our expert team transforms your concepts into fully functional, visually stunning websites that capture your brand’s identity and engage your audience.
+              </p></AnimationWrapper>
+
+              
+            <AnimationWrapper direction="left">
+              <p className="text-center text-lg font-medium my-5">
+               Already have a theme, reference, or preferred layout? Simply share it with us, and we’ll bring your vision to life with precision, creativity, and attention to detail.
+Don’t have a design plan yet? No problem! You can choose from our ready-made website templates or let us craft a custom design tailored exclusively to your business goals.
               </p>
             </AnimationWrapper>
           </div>

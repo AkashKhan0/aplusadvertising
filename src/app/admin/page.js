@@ -16,8 +16,8 @@ export default function Dashboard() {
   return (
     <>
       <AdminAuth>
-        <div className="w-full universal bg-[#9EAABD] py-1">
-          <div className="fixed_width text-black flex items-center justify-between">
+        <div className="w-full universal bg-[#9EAABD] sticky top-0 z-50">
+          <div className="fixed_width text-black flex items-center justify-between h-[50px]">
             <h1 className="text-xl sm:text-2xl md:text-3xl title1 font-bold text-center">
               <AnimatedText text="Admin Login" from="left" />
             </h1>

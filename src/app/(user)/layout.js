@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <Footer />
         <ScrollToTop />
-        <main className=""><SmoothScrollProvider>{children}</SmoothScrollProvider></main>
+        <main className="">{children}</main>
       </body>
     </html>
   );

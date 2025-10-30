@@ -46,8 +46,11 @@ export default function Template() {
                   />
                 </h1>
                 <p className="text-center text-lg font-medium my-5">
-                  Pick any design you love. You can view or request
-                  customization instantly.
+                  Discover a wide range of ready-made, responsive website
+                  templates designed for every business type, from e-commerce
+                  and portfolio sites to real estate and corporate brands. Pick
+                  any design you love, view a live demo, or request quick
+                  customization to match your brand’s style and goals.
                 </p>
               </AnimationWrapper>
             </div>
@@ -175,12 +178,18 @@ export default function Template() {
                           }, 2000);
                         } else {
                           setButtonText("❌ Failed! Try Again");
-                          setTimeout(() => setButtonText("Confirm Request"), 2000);
+                          setTimeout(
+                            () => setButtonText("Confirm Request"),
+                            2000
+                          );
                         }
                       } catch (err) {
                         console.error(err);
                         setButtonText("❌ Server Error");
-                        setTimeout(() => setButtonText("Confirm Request"), 2000);
+                        setTimeout(
+                          () => setButtonText("Confirm Request"),
+                          2000
+                        );
                       }
                     }}
                   >

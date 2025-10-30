@@ -42,8 +42,8 @@ export default function AdminDashboard() {
   return (
     <>
       <div className="w-full universal">
-        <div className="w-full h-full min-h-screen flex items-stretch justify-between">
-          <div className="left w-[20%] p-5 bg-[#a2b2d1]">
+        <div className="w-full h-full flex items-stretch justify-between">
+          <div className="left w-[20%] h-full min-h-[calc(100vh-40px)] p-5 bg-[#a2b2d1] sticky top-[50px] overflow-y-auto">
             {tabs.map((tab) => (
               <div
                 key={tab.id}
@@ -60,7 +60,7 @@ export default function AdminDashboard() {
               </div>
             ))}
           </div>
-          <div className="right w-[80%] p-5">{activeComponent}</div>
+          <div className="right w-[80%] p-5 h-full min-h-[calc(100vh-40px)] sticky top-[50px] overflow-y-auto">{activeComponent}</div>
         </div>
       </div>
     </>

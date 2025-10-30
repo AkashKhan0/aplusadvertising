@@ -6,20 +6,20 @@ const AnimationWrapper = ({ children, direction = "left" }) => {
   const variants = {
     hidden: {
       opacity: 0,
-      x: direction === "left" ? -200 : direction === "right" ? 200 : 0,
-      y: direction === "bottom" ? 200 : 0,
+      x: direction === "left" ? -100 : direction === "right" ? 100 : 0,
+      y: direction === "bottom" ? 100 : 0,
     },
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
-      transition: { duration: 1, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" },
     },
     exit: {
       opacity: 0,
-      x: direction === "left" ? -200 : direction === "right" ? 200 : 0,
-      y: direction === "bottom" ? 200 : 0,
-      transition: { duration: 1, ease: "easeIn" },
+      x: direction === "left" ? -100 : direction === "right" ? 100 : 0,
+      y: direction === "bottom" ? 100 : 0,
+      transition: { duration: 0.5, ease: "easeIn" },
     },
   };
 

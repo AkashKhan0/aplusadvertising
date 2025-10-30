@@ -127,9 +127,12 @@ export default function Plan() {
               <AnimatedText text="Customize Your Website Plan" from="right" />
             </h1>
           </AnimationWrapper>
-          <p className="text-lg">
-            Submit your customized plan, and our team will reach out shortly to
-            discuss the details and bring your perfect project to life.
+          <p className="text-lg text-center">
+            Build a website that perfectly fits your goals and brand identity.
+            Simply submit your customized plan, and our expert team at A Plus
+            Advertising Limited will contact you shortly to discuss details,
+            provide a quote, and turn your idea into a high-performing digital
+            presence.
           </p>
         </div>
 
