@@ -68,7 +68,7 @@ const Navbar = () => {
   const isActive = (path) => pathname === path;
 
   return (
-    <nav className="bg-[#232f3e44] backdrop-blur-[5px] shadow-md fixed bottom-0 left-0 w-full z-50 flex items-center justify-center h-[50px] universal">
+    <nav className="bg-[#0A152F] backdrop-blur-[5px] shadow-md fixed bottom-0 left-0 w-full z-50 flex items-center justify-center h-[50px] universal">
       {/* ei navbar section desktop view er jonno */}
       <div className="w-full fixed_width desktop_view mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}

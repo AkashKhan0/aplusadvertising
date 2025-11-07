@@ -14,7 +14,7 @@ const Footer = () => {
   const isActive = (path) => pathname === path;
   return (
     <div>
-      <div className="w-full h-fit flex items-center justify-center bg-[#232f3e44] backdrop-blur-[5px] shadow-md footer">
+      <div className="w-full h-fit flex items-center justify-center bg-[#0A152F] backdrop-blur-[5px] shadow-md footer text-[#fff]">
         <div className="container flex flex-col items-center justify-center gap-1">
           
           <div className="flex flex-col sm:flex-col md:flex-row items-center justify-evenly gap-2 w-full ">
