@@ -1,23 +1,22 @@
 import dbConnect from "@/lib/mongodb";
 import Category from "@/models/Category";
 
-// UPDATE category
 export async function PUT(req, { params }) {
   try {
     await dbConnect();
     const { id } = params;
-    const { name, description } = await req.json(); // get description
+    const { name, description, image } = await req.json();
 
-    if (!name || !description) {
+    if (!name || !description || !image) {
       return new Response(
-        JSON.stringify({ error: "Name and description are required" }),
+        JSON.stringify({ error: "All fields are required" }),
         { status: 400 }
       );
     }
 
     const updated = await Category.findByIdAndUpdate(
       id,
-      { name, description },
+      { name, description, image },
       { new: true }
     );
 
@@ -31,7 +30,6 @@ export async function PUT(req, { params }) {
   }
 }
 
-// DELETE category
 export async function DELETE(req, { params }) {
   try {
     await dbConnect();

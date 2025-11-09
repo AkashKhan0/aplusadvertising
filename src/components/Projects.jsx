@@ -4,12 +4,10 @@ import Image from "next/image";
 import AnimatedText from "./AnimatedText";
 import AnimationWrapper from "./AnimationWrapper";
 import "../styles/project.css";
-import Link from "next/link";
+import ButtonLink from "./ButtonLink";
 
 export default function Projects() {
-  const [active, setActive] = useState(null);
   const [projects, setProjects] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(5); // default
 
   // Fetch projects from API
   const fetchSubCategories = async () => {
@@ -17,7 +15,6 @@ export default function Projects() {
       const res = await fetch("/api/projects"); // adjust API route
       const data = await res.json();
       setProjects(data);
-      if (data.length > 0) setActive(data[0]._id);
     } catch (err) {
       console.error("Error fetching projects:", err);
     }
@@ -27,24 +24,11 @@ export default function Projects() {
     fetchSubCategories();
   }, []);
 
-  // Responsive logic
-  useEffect(() => {
-    const updateCount = () => {
-      const width = window.innerWidth;
-      if (width < 640) setVisibleCount(2); // Mobile
-      else if (width < 1024) setVisibleCount(3); // Tablet
-      else setVisibleCount(5); // Laptop/Desktop
-    };
-    updateCount();
-    window.addEventListener("resize", updateCount);
-    return () => window.removeEventListener("resize", updateCount);
-  }, []);
-
   return (
-    <div className="w-full universal py-10 my-10 sm:my-14 md:my-20">
+    <div className="w-full universal py-10 my-10 sm:my-14 md:my-10">
       <div className="fixed_width px-2 sm:px-4 md:px-6">
         {/* Heading */}
-        <div className="w-full mb-8 flex flex-col items-end">
+        <div className="w-full mb-8 flex flex-col items-center justify-center">
           <AnimationWrapper direction="right">
             <div className="w-fit flex items-center gap-3">
               <Image
@@ -57,11 +41,6 @@ export default function Projects() {
               />
               <h1 className="text-base sm:text-lg md:text-xl font-bold uppercase flex items-center ">
                 <AnimatedText text="Our Projects" from="right" />
-                <Link href="/services">
-                  <span className="ml-10 sm:ml-20 border text-sm pt-[3px] px-3.5 cursor-pointer hover:bg-[#99A1AF] duration-300">
-                    view all
-                  </span>
-                </Link>
               </h1>
             </div>
           </AnimationWrapper>
@@ -76,51 +55,44 @@ export default function Projects() {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col sm:flex-col md:flex-row gap-5 mb-10 items-center mt-16 sm:mt-16 md:mt-10">
-          <div className="w-full flex items-center justify-center">
-            <div className="flex h-[400px] w-full overflow-hidden">
-              {projects.slice(0, visibleCount).map((sub, index) => (
-                <label
-                  key={sub._id}
-                  onClick={() => setActive(sub._id)}
-                  className={`relative flex items-end rounded-2xl cursor-pointer shadow-xl transition-all duration-500 ease-[cubic-bezier(.28,-0.03,0,.99)] overflow-hidden mx-1 sm:mx-2
-                    ${
-                      active === sub._id
-                        ? "flex-[5]" // expands
-                        : "flex-[1]" // shrinks
-                    }`}
-                  style={{
-                    backgroundImage: `url(${sub.image})`,
-                    backgroundSize: "contain",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                >
-                  {/* Black overlay */}
-                  <div className="absolute inset-0 bg-black/70"></div>
 
-                  <div className="relative flex text-white w-full p-5">
-                    {/* Title & Description */}
-                    <div
-                      className={`flex flex-col justify-center pr-3 sm:pr-6 transition-all duration-300 ${
-                        active === sub._id
-                          ? "opacity-100 translate-y-0 delay-200"
-                          : "opacity-0 translate-y-6"
-                      }`}
-                    >
-                      <h4 className="uppercase font-semibold text-white text-lg sm:text-2xl md:text-4xl mb-5">
-                        <AnimatedText text={sub.title} from="left" />
-                      </h4>
-
-                      <p className="text-base sm:text-lg text-white">
-                        {sub.description}
-                      </p>
-                    </div>
-                  </div>
-                </label>
-              ))}
-            </div>
+        <div className="w-full flex items-center justify-center">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-4">
+            {projects.slice(0, 4).map((project) => (
+              <div
+                key={project._id}
+                className="rounded-md p-5 flex flex-col items-center justify-start bg-[#ddd] duration-300 hover:shadow-lg mx-auto cursor-pointer w-full gap-5"
+              >
+                <div className="w-full flex items-center justify-center h-[150px]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={50}
+                    height={50}
+                    unoptimized
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="w-full flex flex-col items-center justify-center gap-2">
+                  <h2 className="text-2xl capitalize font-semibold">
+                    {project.title.split(" ").length > 3
+                      ? project.title.split(" ").slice(0, 5).join(" ") + "..."
+                      : project.title}
+                  </h2>
+                  <p className="text-base sm:text-lg text-[#222] text-center">
+                    {project.description.split(" ").length > 5
+                      ? project.description.split(" ").slice(0, 5).join(" ") +
+                        "..."
+                      : project.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+
+        <div className="w-full flex items-center justify-center mt-5">
+          <ButtonLink href="/projects" text="view all" />
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import AnimatedText from "./AnimatedText";
 import AnimationWrapper from "./AnimationWrapper";
 import "../styles/service.css";
 import Link from "next/link";
+import ButtonLink from "./ButtonLink";
 
 export default function Service() {
   const [categories, setCategories] = useState([]);
@@ -34,7 +35,7 @@ export default function Service() {
     <div className="w-full universal">
       <div className="fixed_width px-2 sm:px-4 md:px-2 lg:px-0">
         {/* Heading */}
-        <div className="w-full mb-8">
+        <div className="w-full mb-8 flex flex-col items-center justify-center">
           <AnimationWrapper direction="left">
             <div className="w-fit flex items-center gap-3">
               <Image
@@ -47,11 +48,6 @@ export default function Service() {
               />
               <h1 className="text-base sm:text-lg md:text-xl font-bold uppercase flex items-center ">
                 <AnimatedText text="Our Services" from="left" />
-                <Link href="/services">
-                  <span className="ml-10 sm:ml-20 border text-sm py-2 px-3.5 cursor-pointer hover:bg-[#ddd] duration-300">
-                    view all
-                  </span>
-                </Link>
               </h1>
             </div>
           </AnimationWrapper>
@@ -71,10 +67,10 @@ export default function Service() {
             {categories.map((cat) => (
               <div
                 key={cat._id}
-                className="rounded-md p-5 flex flex-col items-center justify-start max-w-[300px] bg-[#ddd]"
+                className="rounded-md p-5 flex flex-col items-center justify-start max-w-[300px] bg-[#ddd] duration-300 hover:shadow-lg mx-auto cursor-pointer"
               >
                 <Image
-                  src="./images/seo.png"
+                  src={cat.image}
                   alt={cat.name}
                   width={60}
                   height={60}
@@ -89,6 +85,10 @@ export default function Service() {
             ))}
           </div>
         </div>
+
+          <div className="w-full flex items-center justify-center mt-5">
+                <ButtonLink href="/services" text="view all" />
+          </div>
 
       </div>
     </div>

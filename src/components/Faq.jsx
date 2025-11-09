@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import AnimationWrapper from "./AnimationWrapper";
 import AnimatedText from "./AnimatedText";
-import { IoIosArrowDown,IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export default function Faq() {
   const [faqs, setFaqs] = useState([]);
@@ -33,7 +33,8 @@ export default function Faq() {
       <div className="w-full universal">
         <div className="fixed_width px-5 sm:px-2 md:px-2">
           <AnimationWrapper direction="left">
-            <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
+            <div className="w-full flex flex-col items-center justify-center">
+              <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
               <AnimatedText text="FAQ" from="right" />
             </h1>
             <h1 className="text-lg sm:text-xl md:text-2xl title1 py-2">
@@ -42,8 +43,10 @@ export default function Faq() {
                 from="left"
               />
             </h1>
+            </div>
           </AnimationWrapper>
-            <div className="flex flex-col gap-4 mb-5">
+          <div className="w-full flex items-center justify-center">
+            <div className="flex flex-col gap-4 mb-5 w-full sm:w-[80%] md:w-[70%]">
               {faqs.map((faq, index) => {
                 const isOpen = activeIndex === index;
                 return (
@@ -53,13 +56,13 @@ export default function Faq() {
                   >
                     <button
                       onClick={() => toggleFAQ(index)}
-                      className="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-gray-800"
+                      className="w-full flex flex-col items-center justify-center px-4 py-3 font-medium text-gray-800"
                     >
                       <span className="text-xl font-bold">{faq.question}</span>
                       {isOpen ? (
-                        <IoIosArrowForward className="w-5 h-5 text-gray-500" />
+                        <IoIosArrowUp className="w-5 h-5 text-[#222]" />
                       ) : (
-                        <IoIosArrowDown className="w-5 h-5 text-gray-500" />
+                        <IoIosArrowDown className="w-5 h-5 text-[#222]" />
                       )}
                     </button>
 
@@ -68,7 +71,7 @@ export default function Faq() {
                         isOpen
                           ? "max-h-40 px-4 py-2 opacity-100"
                           : "max-h-0 opacity-0"
-                      } overflow-hidden text-gray-600`}
+                      } overflow-hidden text-gray-600 text-center`}
                     >
                       {faq.answer}
                     </div>
@@ -76,6 +79,7 @@ export default function Faq() {
                 );
               })}
             </div>
+          </div>
         </div>
       </div>
     </>

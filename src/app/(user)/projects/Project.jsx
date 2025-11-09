@@ -47,20 +47,27 @@ export default function Project() {
                   text="Let’s turn your vision into Reality!"
                   from="right"
                 />
-              </h1>              
+              </h1>
             </AnimationWrapper>
-            
+
             <AnimationWrapper direction="right">
               <p className="text-center text-lg font-medium my-5">
-                Have a website design idea or layout plan in mind? We’d love to see it!
-At A Plus Advertising Limited, our expert team transforms your concepts into fully functional, visually stunning websites that capture your brand’s identity and engage your audience.
-              </p></AnimationWrapper>
+                Have a website design idea or layout plan in mind? We’d love to
+                see it! At A Plus Advertising Limited, our expert team
+                transforms your concepts into fully functional, visually
+                stunning websites that capture your brand’s identity and engage
+                your audience.
+              </p>
+            </AnimationWrapper>
 
-              
             <AnimationWrapper direction="left">
               <p className="text-center text-lg font-medium my-5">
-               Already have a theme, reference, or preferred layout? Simply share it with us, and we’ll bring your vision to life with precision, creativity, and attention to detail.
-Don’t have a design plan yet? No problem! You can choose from our ready-made website templates or let us craft a custom design tailored exclusively to your business goals.
+                Already have a theme, reference, or preferred layout? Simply
+                share it with us, and we’ll bring your vision to life with
+                precision, creativity, and attention to detail. Don’t have a
+                design plan yet? No problem! You can choose from our ready-made
+                website templates or let us craft a custom design tailored
+                exclusively to your business goals.
               </p>
             </AnimationWrapper>
           </div>
@@ -154,19 +161,19 @@ Don’t have a design plan yet? No problem! You can choose from our ready-made w
                     {/* Actions */}
                     <div className="flex items-center justify-evenly mt-4 gap-5">
                       {/* Icons */}
-                        <button
-                          onClick={() => window.open(project.link, "_blank")}
-                          className="hover:text-blue-400 transition-colors"
-                        >
-                          <FaExternalLinkAlt />
-                        </button>
+                      <button
+                        onClick={() => window.open(project.link, "_blank")}
+                        className="hover:text-blue-400 transition-colors"
+                      >
+                        <FaExternalLinkAlt />
+                      </button>
 
-                        <button
-                          onClick={() => setQuickViewUrl(project.link)}
-                          className="hover:text-green-400 transition-colors"
-                        >
-                          <FaEye />
-                        </button>
+                      <button
+                        onClick={() => setQuickViewUrl(project.link)}
+                        className="hover:text-green-400 transition-colors"
+                      >
+                        <FaEye />
+                      </button>
                       {/* I want this */}
                       <button
                         onClick={() => setSelectedProject(project)}
