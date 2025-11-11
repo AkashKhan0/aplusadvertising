@@ -15,7 +15,7 @@
   display: none;
 } */
 body {
-  background-color: #cbd6eb;
+  background-color: #F1E3A4;
   color: #181520;
 }
 .footer {
@@ -140,6 +140,13 @@ body {
 .baton {
   padding: 4px 15px;
   position: relative;
+  border: 2px solid #9c1f0e;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+.baton:hover {
+  color: #9c1f0e;
+  border: 2px solid #0A152F;
 }
 button {
   text-transform: uppercase;
@@ -153,7 +160,7 @@ button {
   transition: all 0.3s ease;
 }
 .baton:hover .bordersy {
-  width: 46%;
+  background-color: #0A152F;
 }
 .bordersx {
   height: 10px;
@@ -162,57 +169,35 @@ button {
   transition: all 0.3s ease;
 }
 .baton:hover .bordersx {
-  height: 50%;
+  background-color: #0A152F;
 }
 .perspective-1000 {
   perspective: 1000px;
 }
 
 
-/* contact page css */
 
-
-.cntleft {
--webkit-transform-origin: 0;
-  -ms-transform-origin: 0;
-  transform-origin: 0;
-  -webkit-transform: preserve-3d;
-  -ms-transform: preserve-3d;
-  transform: preserve-3d;
-}
-
-.cntright {
--webkit-transform-origin: 0;
-  -ms-transform-origin: 0;
-  transform-origin: 0;
+/* neo button design */
+/* From Uiverse.io by adamgiebl */ 
+.neu-button {
+  background-color: #0A152F;
+  border-radius: 50px;
+  box-shadow: inset 4px 4px 10px #0A152F, inset -4px -4px 10px #465b8c;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 20px;
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 2px;
+  border: 2px solid #0A152F;
 }
 
-.cntfrmcrd:hover .cntleft {
-  -webkit-transform: rotatey(-85deg);
-  -ms-transform: rotatey(-85deg);
-  transform: rotatey(-85deg);
-
-}
-.cntfrmcrd:hover .cntright {
-  transform: translateX(80px);
-}
-@media only screen and (max-width: 768px) {
-  .cntfrmcrd:hover .cntright {
-  transform: translateX(40px);
-}
-}
-@media only screen and (max-width: 500px) {
-  .cntfrmcrd:hover .cntright {
-  transform: translateX(40px);
-}
-}
-@media only screen and (max-width: 400px) {
-  .cntfrmcrd:hover .cntright {
-  transform: translateX(20px);
-}
+.neu-button:hover {
+  box-shadow: inset 2px 2px 5px #0A152F, inset -2px -2px 5px #465b8c, 2px 2px 5px #0A152F, -2px -2px 5px #465b8c;
 }
 
-.cntfrmcrd:hover .msgus {
-  opacity: 1;
+.neu-button:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 5px #0A152F, inset -2px -2px 5px #465b8c, 2px 2px 5px #0A152F, -2px -2px 5px #465b8c;
 }
 

@@ -101,19 +101,14 @@ export default function TakeReview() {
   };
 
   return (
+  
     <div className="w-full universal py-20">
       <div className="fixed_width text-center">
         {/* Slider */}
         <div className="sliderr">
           {reviews.map((review, index) => (
-            <div className="itemms text-black p-4" key={index}>
-              <Image
-                src="/images/happy-client.png"
-                alt="review"
-                width={112}
-                height={112}
-                className="w-20 h-20 sm:w-28 sm:h-28 object-cover mb-5 m-auto rounded-full border-2 border-black/20"
-              />
+            <div className="itemms text-black p-4 flex flex-col items-center justify-center" key={index}>
+              
               <p className="text-xl my-2">
                 {Array.from({ length: review.rating }, (_, i) => (
                   <span key={i}>⭐</span>
@@ -151,7 +146,7 @@ export default function TakeReview() {
           <div className="w-full my-5">
             <button
               onClick={() => setShowPopup(true)}
-              className="bg-[#64646460] text-black px-4 py-2 rounded"
+              className="neu-button"
             >
               Review Us!
             </button>

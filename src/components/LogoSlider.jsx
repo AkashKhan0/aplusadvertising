@@ -83,7 +83,8 @@ export default function LogoSlider() {
   }, []);
 
   return (
-    <div className="w-full universal my-10">
+    <>
+    <div className="w-full universal py-20 bg-[#F1E3A4]">
       <div className="fixed_width">
         <div className="">
           {/* Text Scroll Section */}
@@ -98,9 +99,14 @@ export default function LogoSlider() {
             <div>{renderLogos()}</div>
           </div>
         </div>
+      </div>
+    </div>
 
+
+  <div className="w-full universal py-10 bg-[#FAF9D0]">
+      <div className="fixed_width">
         {/* our achivment */}
-        <div className="w-full my-20">
+        <div className="w-full mb-10">
           <div className="w-full flex flex-col items-center justify-center">
             <AnimationWrapper direction="left">
               <h1 className="text-4xl sm:text-3xl title1 md:text-4xl font-bold my-5">
@@ -184,8 +190,10 @@ export default function LogoSlider() {
               </AnimationWrapper>
             </div>
           </div>
-        </div>
+
       </div>
     </div>
+    </div>
+    </>
   );
 }

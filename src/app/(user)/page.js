@@ -9,6 +9,7 @@ import LogoSlider from "@/components/LogoSlider";
 import Projects from "@/components/Projects";
 import TakeReview from "@/components/TakeReview";
 import Faq from "@/components/Faq";
+import PricingPlan from "@/components/PricingPlan";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -25,9 +26,10 @@ export default function Home() {
 
   return (
     <>
-      <div className="w-full flex flex-col mb-[60px] overflow-hidden">
+      <div className="w-full flex flex-col mb-[40px] overflow-hidden">
         <Hero />
         <Service />
+        <PricingPlan />
         <Projects />
         <LogoSlider/>
         <TakeReview/>

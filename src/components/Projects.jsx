@@ -25,20 +25,12 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="w-full universal py-10 my-10 sm:my-14 md:my-10">
+    <div className="w-full universal py-20 bg-[#FAF9D0]">
       <div className="fixed_width px-2 sm:px-4 md:px-6">
         {/* Heading */}
-        <div className="w-full mb-8 flex flex-col items-center justify-center">
+        <div className="w-full flex flex-col items-center justify-center">
           <AnimationWrapper direction="right">
             <div className="w-fit flex items-center gap-3">
-              <Image
-                src="/images/project.gif"
-                alt="aplus"
-                width={20}
-                height={20}
-                className="mb-1"
-                unoptimized
-              />
               <h1 className="text-base sm:text-lg md:text-xl font-bold uppercase flex items-center ">
                 <AnimatedText text="Our Projects" from="right" />
               </h1>
@@ -57,11 +49,11 @@ export default function Projects() {
         {/* Content */}
 
         <div className="w-full flex items-center justify-center">
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-4">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 py-20">
             {projects.slice(0, 4).map((project) => (
               <div
                 key={project._id}
-                className="rounded-md p-5 flex flex-col items-center justify-start bg-[#ddd] duration-300 hover:shadow-lg mx-auto cursor-pointer w-full gap-5"
+                className="rounded-md p-5 flex flex-col items-center justify-start bg-[#F1E3A4] duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg mx-auto cursor-pointer w-full gap-5"
               >
                 <div className="w-full flex items-center justify-center h-[150px]">
                   <Image
@@ -91,7 +83,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="w-full flex items-center justify-center mt-5">
+        <div className="w-full flex items-center justify-center mb-2">
           <ButtonLink href="/projects" text="view all" />
         </div>
       </div>

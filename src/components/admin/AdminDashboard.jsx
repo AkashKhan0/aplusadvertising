@@ -14,6 +14,7 @@ import FAQForm from "./FAQForm";
 import FAQList from "./FAQList";
 import Blogpost from "./Blogpost";
 import Blogpostlist from "./Blogpostlist";
+import Clientlogo from "./Clientlogo";
 
 export default function AdminDashboard() {
   // Tabs data
@@ -32,6 +33,7 @@ export default function AdminDashboard() {
     { id: 12, title: "Orders List", component: <OrderList /> },
     { id: 13, title: "Add Blog Post", component: <Blogpost /> },
     { id: 14, title: "Blog Post List", component: <Blogpostlist /> },
+    { id: 15, title: "Client Logo List", component: <Clientlogo /> },
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0].id); // default first active

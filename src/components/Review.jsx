@@ -15,7 +15,7 @@ function StarRating({ value, onChange }) {
           onMouseEnter={() => setHover(star)}
           onMouseLeave={() => setHover(0)}
           className={`cursor-pointer text-3xl transition-colors ${
-            star <= (hover || value) ? "text-yellow-400" : "text-gray-300"
+            star <= (hover || value) ? "text-[#0A152F]" : "text-gray-400"
           }`}
         >
           ★
@@ -71,16 +71,16 @@ export default function Review({ onClose, onReviewAdded  }) {
   };
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center bg-[#0000009a] bg-opacity-50 rvw-box">
-      <div className="bg-[#0A152F] backdrop-blur-md border border-white shadow-lg p-6 rounded-2xl w-96 relative">
+    <div className="fixed inset-0 flex justify-center items-center bg-[#000000ca] bg-opacity-50 rvw-box">
+      <div className="bg-[#F1E3A4] backdrop-blur-md border border-[#FAF9D0] shadow-lg p-6 rounded-md w-96 relative">
   <button
     onClick={onClose}
-    className="absolute top-3 right-3 text-gray-200 hover:text-red-400"
+    className="absolute top-3 right-3 text-[#0A152F] hover:text-[#9c1f0e]"
   >
     <GiCrossMark />
   </button>
 
-  <h2 className="text-xl font-bold mb-4 text-white">Write Your Review</h2>
+  <h2 className="text-xl font-bold mb-4 text-[#0A152F]">Write Your Review</h2>
 
   <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
     <input
@@ -90,7 +90,7 @@ export default function Review({ onClose, onReviewAdded  }) {
       value={formData.name}
       onChange={handleChange}
       required
-      className="border w-full p-2 bg-white text-black placeholder-gray-700 rounded"
+      className="border border-[#0A152F] w-full p-2 bg-[#FAF9D0] text-black placeholder-gray-700 rounded"
     />
     <textarea
       name="message"
@@ -98,7 +98,7 @@ export default function Review({ onClose, onReviewAdded  }) {
       value={formData.message}
       onChange={handleChange}
       required
-      className="border w-full p-2 bg-white text-black placeholder-gray-700 rounded"
+      className="border border-[#0A152F] w-full p-2 bg-[#FAF9D0] text-black placeholder-gray-700 rounded"
     />
 
     <StarRating
@@ -119,7 +119,7 @@ export default function Review({ onClose, onReviewAdded  }) {
     <button
       type="submit"
       disabled={loading}
-      className="w-full px-4 py-2 bg-blue-500/80 hover:bg-blue-500 text-white rounded"
+      className="neu-button"
     >
       {loading ? "Submitting..." : "Submit"}
     </button>
