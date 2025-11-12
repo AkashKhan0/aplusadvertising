@@ -36,9 +36,9 @@ export default function Services() {
 
   return (
     <>
-      <div className="universal mb-[50px]">
+      <div className="universal my-20">
         <div className="fixed_width px-5 sm:px-2 md:px-2">
-          <div className="universal_col p-5">
+          <div className="universal_col">
             <AnimationWrapper direction="left">
               <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center">
                 <AnimatedText
@@ -46,7 +46,7 @@ export default function Services() {
                   from="right"
                 />
               </h1>
-              <p className="text-center text-lg font-medium my-5">
+              <p className="text-justify text-lg font-medium my-5">
                 A Plus Advertising Limited helps your business grow through
                 professional Website Development, SEO, and Digital Marketing
                 services. We design high-performing websites that strengthen
@@ -54,7 +54,7 @@ export default function Services() {
                 Google rankings, and launch data-driven marketing campaigns that
                 attract the right customers.
               </p>
-              <p className="text-center text-lg font-medium my-2">
+              <p className="text-justify text-lg font-medium my-2">
                 Our approach turns online visibility into measurable growth;
                 every project is built for speed, SEO, and long-term success.
                 Choosing A Plus means partnering with experts who focus on
@@ -76,7 +76,7 @@ export default function Services() {
               ) : subCategories.length > 0 ? (
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {subCategories.map((sub) => (
-                    <div key={sub._id} className="flex flex-col">
+                    <div key={sub._id} className="flex flex-col duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer">
                       {/* Top Bar */}
                       <div className="bg-[#707070] relative flex flex-col w-full">
                         <div className="px-2 pt-1 flex items-start justify-between">
@@ -112,8 +112,8 @@ export default function Services() {
                       </div>
 
                       {/* Card Body */}
-                      <div className="bg-[#A2B2D1] p-5 flex flex-col items-center justify-center text-center h-full">
-                        <div className="w-full h-28 flex-shrink-0">
+                      <div className="bg-[#FAF9D0] flex flex-col items-center justify-center text-center h-full">
+                        <div className="w-full h-34 flex-shrink-0">
                           <img
                             src={sub.image}
                             alt={sub.title}
@@ -121,7 +121,7 @@ export default function Services() {
                           />
                         </div>
 
-                        <div className="flex-1 flex flex-col">
+                        <div className="flex-1 flex flex-col px-5">
                           <h1 className="text-lg sm:text-xl md:text-xl font-semibold text-center my-2">
                             <AnimatedText text={sub.title} from="right" />
                           </h1>
@@ -132,7 +132,7 @@ export default function Services() {
                         </div>
 
                         <button
-                          className="text-sm border mt-4 px-5 py-1"
+                          className="neu-button my-5"
                           onClick={() => setSelectedSub(sub)}
                         >
                           {sub.buttonText}

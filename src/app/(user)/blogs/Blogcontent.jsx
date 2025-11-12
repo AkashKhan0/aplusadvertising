@@ -30,7 +30,7 @@ export default function BlogContent({ blogId }) {
                   <img
                     src={blog.image}
                     alt={blog.title}
-                    className="w-full h-full object-cover my-4"
+                    className="w-full h-full object-cover my-4 duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg"
                   />
                 )}
               </AnimationWrapper>
@@ -41,11 +41,11 @@ export default function BlogContent({ blogId }) {
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold py-2">
                   {blog.title}
                 </h1>
-                <p className="text-base">{blog.metaDescription}</p>
+                <p className="text-base text-justify">{blog.metaDescription}</p>
                 <h1 className="text-lg sm:text-xl md:text-2xl font-semibold capitalize py-2">
                   Introduction
                 </h1>
-                <p className="text-base">{blog.introduction}</p>
+                <p className="text-base text-justify">{blog.introduction}</p>
               </AnimationWrapper>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function BlogContent({ blogId }) {
               </h1>
             </AnimationWrapper>
             <AnimationWrapper direction="right">
-              <p className="text-base">{blog.subDesc1}</p>
+              <p className="text-base text-justify">{blog.subDesc1}</p>
             </AnimationWrapper>
           </div>
 
@@ -70,7 +70,7 @@ export default function BlogContent({ blogId }) {
               </h1>
             </AnimationWrapper>
             <AnimationWrapper direction="right">
-              <p className="text-base">{blog.subDesc2}</p>
+              <p className="text-base text-justify">{blog.subDesc2}</p>
             </AnimationWrapper>
           </div>
 
@@ -82,7 +82,7 @@ export default function BlogContent({ blogId }) {
               </h1>
             </AnimationWrapper>
             <AnimationWrapper direction="right">
-              <p className="text-base">{blog.subDesc3}</p>
+              <p className="text-base text-justify">{blog.subDesc3}</p>
             </AnimationWrapper>
           </div>
 
@@ -94,7 +94,7 @@ export default function BlogContent({ blogId }) {
               </h1>
             </AnimationWrapper>
             <AnimationWrapper direction="right">
-              <p className="text-base">{blog.subDesc4}</p>
+              <p className="text-base text-justify">{blog.subDesc4}</p>
             </AnimationWrapper>
           </div>
 
@@ -106,7 +106,7 @@ export default function BlogContent({ blogId }) {
               </h1>
             </AnimationWrapper>
             <AnimationWrapper direction="right">
-              <p className="text-base">{blog.subDesc5}</p>
+              <p className="text-base text-justify">{blog.subDesc5}</p>
             </AnimationWrapper>
           </div>
 
@@ -118,7 +118,7 @@ export default function BlogContent({ blogId }) {
               </h1>
             </AnimationWrapper>
             <AnimationWrapper direction="right">
-              <p className="text-base">{blog.conclusion}</p>
+              <p className="text-base text-justify">{blog.conclusion}</p>
             </AnimationWrapper>
           </div>
 
@@ -130,7 +130,7 @@ export default function BlogContent({ blogId }) {
               </h1>
             </AnimationWrapper>
             <AnimationWrapper direction="right">
-              <p className="text-base">
+              <p className="text-base text-justify">
                 Contact us today to create a beautiful, modern, and effective
                 website for your business:
               </p>

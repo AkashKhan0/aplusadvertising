@@ -45,7 +45,7 @@ export default function Template() {
                     from="right"
                   />
                 </h1>
-                <p className="text-center text-lg font-medium my-5">
+                <p className="text-justify text-lg font-medium my-5">
                   Discover a wide range of ready-made, responsive website
                   templates designed for every business type, from e-commerce
                   and portfolio sites to real estate and corporate brands. Pick
@@ -78,14 +78,13 @@ export default function Template() {
               {!loading &&
                 templates.length > 0 &&
                 templates.map((template) => (
-                  <div key={template._id}>
                     <div
                       key={template._id}
-                      className="relative flex flex-col justify-center items-center text-center overflow-hidden"
+                      className="relative flex flex-col justify-center items-center text-center"
                     >
-                      <div className="w-full border-4 border-[#981D02] rounded-xl overflow-hidden">
+                      <div className="w-full border-2 border-[#fff] rounded-md overflow-hidden  duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer">
                         {/* Iframe View */}
-                        <div className="w-full h-[250px]">
+                        <div className="w-full h-[230px]">
                           <iframe
                             src={template.url}
                             className="w-full h-full border-0"
@@ -113,10 +112,9 @@ export default function Template() {
                         </div>
                       </div>
                       <div className="w-full flex flex-col justify-center items-center">
-                        <div className="w-[20px] h-[20px] bg-[#000]"></div>
-                        <div className="w-[60px] h-[6px] bg-[#000] rounded"></div>
+                        <div className="w-[20px] h-[20px] bg-[#fff]"></div>
+                        <div className="w-[60px] h-[6px] bg-[#fff] rounded duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer"></div>
                       </div>
-                    </div>
                   </div>
                 ))}
             </div>
@@ -192,6 +190,7 @@ export default function Template() {
                         );
                       }
                     }}
+                    className="w-full flex flex-col"
                   >
                     <div className="mt-3">
                       <label className="block text-sm font-semibold mb-1">
@@ -244,7 +243,7 @@ export default function Template() {
 
                     <button
                       type="submit"
-                      className="mt-5 w-full bg-[#981D02] text-white py-2 rounded-lg hover:bg-[#7a1601] transition-all duration-300"
+                      className="mt-5 neu-button mx-auto"
                       disabled={buttonText !== "Confirm Request"}
                     >
                       {buttonText}
@@ -256,7 +255,7 @@ export default function Template() {
           </div>
 
           {/* Plan Section */}
-          <div className="my-20">
+          <div className="my-10">
             <AnimationWrapper direction="left">
               <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center">
                 <AnimatedText text="Do you have any plan?" from="right" />

@@ -27,14 +27,14 @@ export default function Blog() {
             <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold text-center my-5">
               <AnimatedText text="Grow Online Smarter" from="right" />
             </h1>
-            <p className="text-center text-lg font-medium mb-2">
+            <p className="text-lg font-medium mb-2 text-justify">
               Explore expert insights, web design trends, and proven marketing
               strategies to help your business stand out in today’s digital
               world. Stay ahead with the latest tips on SEO, branding, website
               optimization, and online growth, everything you need to build a
               stronger digital presence.
             </p>
-            <p className="text-center text-lg font-medium mb-2">
+            <p className="text-justify text-lg font-medium mb-2">
               Whether you’re a startup or a growing brand, our blogs are
               designed to help you attract customers, boost visibility, and grow
               smarter online.
@@ -47,7 +47,7 @@ export default function Blog() {
               {blogs.map((blog) => (
                 <div
                   key={blog._id}
-                  className="bg-white shadow hover:shadow-lg transition-all duration-300 flex flex-col"
+                  className="bg-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg transition-all duration-300 flex flex-col"
                 >
                   {/* Image */}
                   {blog.image && (
@@ -59,19 +59,19 @@ export default function Blog() {
                   )}
 
                   {/* Content */}
-                  <div className="flex flex-col justify-between flex-1 p-4">
+                  <div className="flex flex-col justify-between items-center flex-1 p-4">
                     <div>
-                      <h3 className="text-lg font-semibold line-clamp-2 mb-2">
+                      <h3 className="text-lg text-center font-semibold line-clamp-2 mb-2">
                         {blog.title}
                       </h3>
-                      <p className="text-gray-600 text-sm line-clamp-2">
+                      <p className="text-[#0A152F] text-sm line-clamp-2 text-justify">
                         {blog.metaDescription}
                       </p>
                     </div>
 
                     <button
                       onClick={() => router.push(`/blogs/${blog._id}`)}
-                      className="mt-4 text-sm font-semibold px-4 py-1 w-fit border duration-300 hover:text-[#9c1f0e]"
+                      className="neu-button mt-3 w-fit"
                     >
                       Read More
                     </button>

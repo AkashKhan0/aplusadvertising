@@ -51,7 +51,7 @@ export default function Project() {
             </AnimationWrapper>
 
             <AnimationWrapper direction="right">
-              <p className="text-center text-lg font-medium my-5">
+              <p className="text-justify text-lg font-medium my-5">
                 Have a website design idea or layout plan in mind? We’d love to
                 see it! At A Plus Advertising Limited, our expert team
                 transforms your concepts into fully functional, visually
@@ -61,7 +61,7 @@ export default function Project() {
             </AnimationWrapper>
 
             <AnimationWrapper direction="left">
-              <p className="text-center text-lg font-medium my-5">
+              <p className="text-justify text-lg font-medium my-5">
                 Already have a theme, reference, or preferred layout? Simply
                 share it with us, and we’ll bring your vision to life with
                 precision, creativity, and attention to detail. Don’t have a
@@ -103,7 +103,7 @@ export default function Project() {
               projects.map((project) => (
                 <div
                   key={project._id}
-                  className="relative group shadow-lg flex flex-col justify-between h-full min-h-[350px] bg-[#000000a1] overflow-hidden"
+                  className="relative group flex flex-col justify-between h-full min-h-[350px] bg-[#000000a1] overflow-hidden duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg"
                   style={{
                     backgroundImage: `url(${project.image})`,
                     backgroundSize: "contain",
@@ -338,7 +338,7 @@ export default function Project() {
 
                     <button
                       type="submit"
-                      className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                      className="w-full neu-button"
                     >
                       Confirm Request
                     </button>

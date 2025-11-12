@@ -138,7 +138,7 @@ export default function Plan() {
 
         <div className="grid md:grid-cols-2 gap-6 my-5">
           {/* LEFT SIDE (Scrollable) */}
-          <div className="overflow-y-auto">
+          <div className="md:max-h-[80vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <Category
                 title="Technology"
@@ -249,7 +249,7 @@ export default function Plan() {
 
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700 transition mt-5"
+                className="neu-button my-5 w-fit mx-auto"
                 disabled={status.type === "loading"}
               >
                 {status.type === "loading" ? "Submitting..." : "Submit Plan"}
@@ -271,7 +271,7 @@ export default function Plan() {
             </form>
           </div>
           {/* RIGHT SIDE (Sticky Summary Panel) */}
-          <div className="md:sticky md:top-6 self-start p-4 rounded overflow-y-auto">
+          <div className="md:sticky md:top-6 self-start rounded overflow-y-auto">
             <h3 className="text-2xl font-bold mb-2 text-center">
               Your Website Plan
             </h3>
@@ -302,6 +302,8 @@ export default function Plan() {
             </ul>
           </div>
         </div>
+
+
       </div>
     </div>
   );

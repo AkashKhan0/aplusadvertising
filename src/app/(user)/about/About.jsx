@@ -215,10 +215,10 @@ export default function About() {
       {/* why choose us end here */}
 
       {/* partner section start */}
-      <div className="universal py-20 bg-[#FAF9D0]">
+      <div className="universal pt-20 bg-[#FAF9D0]">
         <div className="fixed_width px-5">
           <AnimationWrapper direction="left">
-            <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center title1">
+            <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center title1 mb-10">
               <AnimatedText text="Our Team Members" from="right" />
             </h1>
           </AnimationWrapper>
@@ -231,12 +231,12 @@ export default function About() {
               <p className="text-center text-gray-500">No partners found</p>
             )}
 
-            <div className="w-full py-5 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+            <div className="w-full pb-20 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
               {!loading &&
                 partners.map((p) => (
                   <div
                     key={p._id}
-                    className="overflow-hidden h-fit duration-300 cursor-pointer rounded text-center bg-[#000000be]"
+                    className="overflow-hidden h-fit duration-300 rounded text-center bg-[#000000be] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer"
                   >
                     <div className="flex flex-col items-center gap-3 rounded">
                       {/* cover photo */}
@@ -353,7 +353,7 @@ export default function About() {
             {/* right side */}
             <div className="w-full sm:w-full md:w-[40%] flex items-center justify-center p-5">
               <Image
-                src="/images/why-choose-us.png"
+                src="/images/our-vision.png"
                 alt="phone icon"
                 width={400}
                 height={400}
