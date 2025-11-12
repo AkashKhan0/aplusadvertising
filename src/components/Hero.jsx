@@ -11,9 +11,9 @@ import TypingText from "./TypingText";
 
 export default function Hero() {
   const images = [
-    "/images/seo.png",
-    "/images/coding.png",
-    "/images/marketing.png",
+    "/images/seo.gif",
+    "/images/development.gif",
+    "/images/digital_marketing.gif",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -65,13 +65,13 @@ export default function Hero() {
             {/* right side */}
             <div className="flex flex-col items-center justify-center w-full sm:w-full md:w-[50%] px-5 sm:px-2 md:px-2">
               <AnimationWrapper direction="right">
-                <div className="w-[250px] h-[150px] relative overflow-hidden">
+                <div className="w-[250px] h-[200px] relative overflow-hidden">
                   {images.map((src, index) => (
                     <Image
                       key={index}
                       src={src}
                       alt={`slider-${index}`}
-                      width={180}
+                      width={250}
                       height={50}
                       unoptimized
                       className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-2000 ${

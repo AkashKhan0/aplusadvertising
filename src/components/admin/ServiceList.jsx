@@ -107,7 +107,7 @@ export default function ServiceList() {
           {categories.map((cat) => (
             <div
               key={cat._id}
-              className="w-full sm:w-full md:w-[60%] bg-[#A2B2D1] rounded-[6px] px-3 py-3 flex flex-col gap-3 shadow"
+              className="w-full bg-[#A2B2D1] rounded-[6px] px-3 py-3 flex flex-col gap-3 shadow"
             >
               {editId === cat._id ? (
                 <>

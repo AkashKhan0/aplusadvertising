@@ -23,7 +23,7 @@ export default function BlogContent({ blogId }) {
     <div className="universal mb-[50px]">
       <div className="fixed_width px-5 sm:px-2 md:px-2 overflow-hidden">
         <div className="w-full py-10">
-          <div className="w-full flex flex-col sm:flex-col md:flex-row gap-5 items-center">
+          <div className="w-full flex flex-col sm:flex-col md:flex-row gap-5 items-stretch">
             <div className="w-full sm:w-full md:w-[40%]">
               <AnimationWrapper direction="left">
                 {blog.image && (

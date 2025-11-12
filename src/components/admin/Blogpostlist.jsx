@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 
 export default function Blogpostlist() {
   const [blogs, setBlogs] = useState([]);
-  const [editingBlog, setEditingBlog] = useState(null); // for edit modal
+  const [editingBlog, setEditingBlog] = useState(null);
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false); // for image upload
 
   // Fetch all blogs
   const fetchBlogs = async () => {
@@ -46,6 +47,34 @@ export default function Blogpostlist() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // ✅ Handle image upload
+  const handleImageChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    const form = new FormData();
+    form.append("file", file);
+    form.append("folder", "blogs");
+
+    try {
+      const res = await fetch("/api/upload", { method: "POST", body: form });
+      const data = await res.json();
+
+      if (res.ok) {
+        setFormData((prev) => ({ ...prev, image: data.url }));
+        alert("Image uploaded successfully!");
+      } else {
+        alert(data.error || "Upload failed");
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Image upload failed.");
+    } finally {
+      setUploading(false);
+    }
+  };
+
   // Handle update
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -73,9 +102,12 @@ export default function Blogpostlist() {
     <div className="p-6">
       <h2 className="text-xl font-semibold mb-4">All Blogs</h2>
 
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-5">
         {blogs.map((blog) => (
-          <div key={blog._id} className="w-full flex items-center gap-5 border rounded shadow-sm px-2">
+          <div
+            key={blog._id}
+            className="w-full flex items-center gap-5 rounded duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg px-2"
+          >
             {blog.image && (
               <img
                 src={blog.image}
@@ -83,11 +115,11 @@ export default function Blogpostlist() {
                 className="w-40 h-20 object-cover my-2 rounded"
               />
             )}
-            <div className="">
-                <h3 className="text-lg font-bold">{blog.title}</h3>
-            <p className="text-gray-600">{blog.metaDescription}</p>
+            <div>
+              <h3 className="text-lg font-bold">{blog.title}</h3>
+              <p className="text-gray-600">{blog.metaDescription}</p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 ml-auto">
               <button
                 onClick={() => handleEdit(blog)}
                 className="bg-blue-500 text-white px-3 py-1 rounded flex items-center gap-2"
@@ -108,18 +140,49 @@ export default function Blogpostlist() {
       {/* Edit Modal */}
       {editingBlog && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-  <div className="bg-white p-6 w-full max-w-3xl h-[90vh] overflow-y-auto rounded-lg shadow-lg">
+          <div className="bg-white p-6 w-full max-w-3xl h-[80vh] overflow-y-auto rounded-lg shadow-lg">
             <h2 className="text-lg font-semibold mb-4">
               Edit Blog: {editingBlog.title}
             </h2>
+
             <form onSubmit={handleUpdate} className="space-y-3">
+              {/* ✅ Image Upload Section */}
+              {formData.image && (
+                <div className="flex items-center gap-4">
+                  <img
+                    src={formData.image}
+                    alt="Blog"
+                    className="w-40 h-24 object-cover rounded"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setFormData((prev) => ({ ...prev, image: "" }))}
+                    className="bg-red-500 text-white px-2 py-1 rounded"
+                  >
+                    Remove
+                  </button>
+                </div>
+              )}
+              <div>
+                <label className="block text-sm font-medium my-2">
+                  Upload New Image
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="w-full border p-2 rounded"
+                />
+                {uploading && <p className="text-blue-500 text-sm">Uploading...</p>}
+              </div>
+
               <input
                 type="text"
                 name="title"
                 placeholder="Title"
                 value={formData.title || ""}
                 onChange={handleChange}
-                className="w-full border p-2 rounded mb-2"
+                className="w-full border p-2 rounded my-2"
               />
               <textarea
                 name="metaDescription"

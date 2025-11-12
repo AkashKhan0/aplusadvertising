@@ -67,10 +67,10 @@ export default function Service() {
                 <Image
                   src={cat.image}
                   alt={cat.name}
-                  width={60}
-                  height={60}
+                  width={100}
+                  height={100}
                   unoptimized
-                  className=""
+                  className="object-contain w-[250px] h-[150px]"
                 />
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold my-2 text-center">
                   {cat.name}
