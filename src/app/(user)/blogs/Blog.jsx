@@ -42,7 +42,7 @@ export default function Blog() {
           </AnimationWrapper>
 
           {/* blog content boxes */}
-          <div className="w-full my-10 px-4">
+          <div className="w-full my-10">
             <div className="w-full py-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {blogs.map((blog) => (
                 <div
@@ -54,7 +54,7 @@ export default function Blog() {
                     <img
                       src={blog.image}
                       alt={blog.title}
-                      className="w-full h-36 object-cover"
+                      className="w-full h-36 object-fill"
                     />
                   )}
 

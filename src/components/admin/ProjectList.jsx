@@ -32,8 +32,7 @@ export default function ProjectList() {
       title: project.title,
       description: project.description,
       link: project.link,
-      image: project.image,
-      file: null,
+      image: project.image, // use existing URL
     });
   };
 
@@ -43,36 +42,29 @@ export default function ProjectList() {
   };
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "image" && files && files[0]) {
-      setEditData({
-        ...editData,
-        file: files[0],
-        image: URL.createObjectURL(files[0]),
-      });
-    } else {
-      setEditData({ ...editData, [name]: value });
-    }
+    const { name, value } = e.target;
+    setEditData({ ...editData, [name]: value });
   };
 
   const handleSave = async (id) => {
-    const formData = new FormData();
-    formData.append("title", editData.title);
-    formData.append("description", editData.description);
-    formData.append("link", editData.link);
-    if (editData.file) {
-      formData.append("image", editData.file);
-    }
+    try {
+      const res = await fetch(`/api/projects/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(editData),
+      });
 
-    const res = await fetch(`/api/projects/${id}`, {
-      method: "PUT",
-      body: formData,
-    });
+      const data = await res.json();
+      console.log("Update response:", res.status, data); // optional debugging
 
-    if (res.ok) {
+      if (!res.ok) throw new Error("Update failed");
+
       setEditingId(null);
       setEditData({});
       fetchProjects();
+    } catch (err) {
+      console.error(err);
+      alert("Failed to update project.");
     }
   };
 
@@ -84,50 +76,50 @@ export default function ProjectList() {
         projects.map((p) => (
           <div
             key={p._id}
-            className="border p-4 rounded flex items-start justify-between gap-5"
+            className="p-4 rounded flex items-start justify-between gap-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg"
           >
-            <div className="flex gap-4">
-              {editingId === p._id ? (
-                <input
-                  type="file"
-                  name="image"
-                  onChange={handleChange}
-                  className="w-20 h-20 object-contain border rounded-full cursor-pointer"
-                />
-              ) : (
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-20 h-20 object-contain mb-2 border rounded-full"
-                />
-              )}
-              <div className="flex flex-col gap-2">
+            <div className="w-full flex items-stretch gap-2">
+              <img
+                src={editingId === p._id ? editData.image : p.image}
+                alt={p.title}
+                className="w-[320px] h-full object-contain"
+              />
+
+              <div className="w-full flex flex-col gap-2">
                 {editingId === p._id ? (
                   <>
                     <input
                       type="text"
                       name="title"
-                      value={editData.title}
+                      value={editData.title || ""}
                       onChange={handleChange}
-                      className="border px-2 py-1 rounded"
+                      className="w-full border px-2 py-1 rounded"
                     />
                     <textarea
                       name="description"
-                      value={editData.description}
+                      value={editData.description || ""}
                       onChange={handleChange}
-                      className="border px-2 py-1 rounded resize-none"
+                      className="w-full border px-2 py-1 rounded resize-none"
                     />
                     <input
                       type="text"
                       name="link"
-                      value={editData.link}
+                      value={editData.link || ""}
                       onChange={handleChange}
-                      className="border px-2 py-1 rounded"
+                      className="w-full border px-2 py-1 rounded"
+                    />
+                    <input
+                      type="text"
+                      name="image"
+                      value={editData.image || ""}
+                      onChange={handleChange}
+                      className="w-full border px-2 py-1 rounded"
+                      placeholder="Image URL"
                     />
                   </>
                 ) : (
                   <>
-                    <h3 className="font-bold text-2xl">{p.title}</h3>
+                    <h3 className="font-bold text-2xl capitalize">{p.title}</h3>
                     <p>{p.description}</p>
                     <a
                       href={p.link}
@@ -140,6 +132,7 @@ export default function ProjectList() {
                 )}
               </div>
             </div>
+
             <div className="flex gap-2 mt-2">
               {editingId === p._id ? (
                 <>

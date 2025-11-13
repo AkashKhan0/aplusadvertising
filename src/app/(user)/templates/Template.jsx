@@ -35,7 +35,7 @@ export default function Template() {
     <>
       <div className="universal mb-[50px]">
         <div className="fixed_width px-5 sm:px-2 md:px-2">
-          <div className="universal_col p-5">
+          <div className="universal_col py-5">
             {/* Header Section */}
             <div className="my-5">
               <AnimationWrapper direction="left">
@@ -74,7 +74,7 @@ export default function Template() {
             )}
 
             {/* Templates Section */}
-            <div className="w-full py-5 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
+            <div className="w-full py-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
               {!loading &&
                 templates.length > 0 &&
                 templates.map((template) => (
@@ -82,9 +82,9 @@ export default function Template() {
                       key={template._id}
                       className="relative flex flex-col justify-center items-center text-center"
                     >
-                      <div className="w-full border-2 border-[#fff] rounded-md overflow-hidden  duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer">
+                      <div className="w-full border-4 border-[#fff] rounded-md overflow-hidden  duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)] hover:shadow-lg cursor-pointer">
                         {/* Iframe View */}
-                        <div className="w-full h-[230px]">
+                        <div className="w-full h-[300px]">
                           <iframe
                             src={template.url}
                             className="w-full h-full border-0"
@@ -122,7 +122,7 @@ export default function Template() {
             {/* Add to Cart Modal */}
             {selectedTemplate && (
               <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-                <div className="w-[90%] max-w-md bg-white p-5 relative rounded-lg shadow-lg">
+                <div className="w-[90%] max-w-md bg-[#F1E3A4] p-5 relative rounded-lg shadow-lg">
                   <button
                     onClick={() => setSelectedTemplate(null)}
                     className="absolute top-2 right-2 bg-black text-white p-1 text-xl rounded-md hover:bg-gray-800"
@@ -130,13 +130,13 @@ export default function Template() {
                     <IoMdClose />
                   </button>
 
-                  <h2 className="text-2xl mb-3 font-bold">
+                  <h2 className="text-2xl mb-3 font-bold capitalize">
                     {selectedTemplate.title}
                   </h2>
                   <a
                     href={selectedTemplate.url}
                     target="_blank"
-                    className="text-blue-600 underline break-all"
+                    className="text-[#181520] underline-none break-all"
                   >
                     {selectedTemplate.url}
                   </a>
@@ -199,7 +199,7 @@ export default function Template() {
                       <input
                         type="text"
                         name="userName"
-                        className="w-full border border-gray-300 p-2 rounded-md"
+                        className="w-full border border-[#181520] p-2 rounded-md"
                         required
                       />
                     </div>
@@ -211,7 +211,7 @@ export default function Template() {
                       <input
                         type="text"
                         name="userPhone"
-                        className="w-full border border-gray-300 p-2 rounded-md"
+                        className="w-full border border-[#181520] p-2 rounded-md"
                         required
                       />
                     </div>
@@ -223,7 +223,7 @@ export default function Template() {
                       <input
                         type="email"
                         name="userEmail"
-                        className="w-full border border-gray-300 p-2 rounded-md"
+                        className="w-full border border-[#181520] p-2 rounded-md"
                         required
                       />
                     </div>
@@ -235,7 +235,7 @@ export default function Template() {
                       <textarea
                         name="userMessage"
                         rows="3"
-                        className="w-full border border-gray-300 p-2 rounded-md"
+                        className="w-full border border-[#181520] p-2 rounded-md"
                         placeholder="Write your message here..."
                         required
                       ></textarea>

@@ -1,4 +1,3 @@
-// src/app/api/subcategories/[id]/route.js
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/mongodb";
 import SubCategory from "@/models/subCategory";
@@ -6,7 +5,7 @@ import SubCategory from "@/models/subCategory";
 export async function GET(req, { params }) {
   await dbConnect();
   try {
-    const sub = await SubCategory.findById(params.id).populate("categoryId", "name");
+    const sub = await SubCategory.findById(params.id);
     if (!sub) {
       return NextResponse.json({ error: "SubCategory not found" }, { status: 404 });
     }
@@ -24,7 +23,7 @@ export async function PUT(req, { params }) {
     const updated = await SubCategory.findByIdAndUpdate(params.id, body, {
       new: true,
       runValidators: true,
-    }).populate("categoryId", "name");
+    });
 
     if (!updated) {
       return NextResponse.json({ error: "SubCategory not found" }, { status: 404 });

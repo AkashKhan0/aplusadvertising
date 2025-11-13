@@ -146,7 +146,7 @@ export default function Partner() {
       {loading ? <p>Loading...</p> : null}
 
       {partners.map((p) => (
-        <div key={p._id} className="p-4 border rounded flex gap-4">
+        <div key={p._id} className="p-4 rounded flex gap-4 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg">
           <img
             src={p.profilePicture}
             alt={p.name}

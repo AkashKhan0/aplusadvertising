@@ -6,18 +6,9 @@ export async function GET(req) {
   try {
     await dbConnect();
 
-    // Extract the categoryId from query params
-    const { searchParams } = new URL(req.url);
-    const categoryId = searchParams.get("categoryId");
+    // Fetch all subcategories
+    const subs = await SubCategory.find().sort({ createdAt: -1 });
 
-    // Filter subcategories by categoryId if provided
-    const filter = categoryId ? { categoryId } : {};
-
-    const subs = await SubCategory.find(filter)
-      .populate("categoryId", "name")
-      .sort({ createdAt: -1 });
-
-    // Return the results
     return NextResponse.json(subs, { status: 200 });
   } catch (err) {
     console.error("GET /subcategories error:", err);
@@ -30,8 +21,8 @@ export async function POST(req) {
     await dbConnect();
     const body = await req.json();
 
-    const { categoryId, title, description, image } = body;
-    if (!categoryId || !title || !description || !image) {
+    const { title, description, image } = body;
+    if (!title || !description || !image) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }

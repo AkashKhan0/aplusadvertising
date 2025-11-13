@@ -21,7 +21,7 @@ export async function GET(req, { params }) {
 export async function PUT(req, { params }) {
   try {
     await connectDB();
-    const { id } = params;
+    const { id } = await params;
     const body = await req.json();
     const updated = await Partner.findByIdAndUpdate(id, body, { new: true });
     if (!updated) {

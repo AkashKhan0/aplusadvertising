@@ -218,8 +218,8 @@ export default function About() {
       <div className="universal pt-20 bg-[#FAF9D0]">
         <div className="fixed_width px-5">
           <AnimationWrapper direction="left">
-            <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center title1 mb-10">
-              <AnimatedText text="Our Team Members" from="right" />
+            <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center title1 mb-10 capitalize">
+              <AnimatedText text="Our administrator" from="right" />
             </h1>
           </AnimationWrapper>
 
@@ -231,7 +231,7 @@ export default function About() {
               <p className="text-center text-gray-500">No partners found</p>
             )}
 
-            <div className="w-full pb-20 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+            <div className="w-full pb-20 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
               {!loading &&
                 partners.map((p) => (
                   <div
@@ -240,7 +240,7 @@ export default function About() {
                   >
                     <div className="flex flex-col items-center gap-3 rounded">
                       {/* cover photo */}
-                      <div className="w-full h-[150px] top-0 left-0">
+                      <div className="w-full h-[200px] top-0 left-0">
                         <img
                           src={p.profilePicture}
                           alt={p.name}
@@ -248,7 +248,7 @@ export default function About() {
                         />
                       </div>
                       <div className="flex w-full items-center gap-3 py-1 px-2 relative">
-                        <div className="w-[100px] h-[100px] rounded-full mt-[-50px]">
+                        <div className="w-[150px] h-[150px] rounded-full mt-[-50px] border-2">
                           <img
                             src={p.profilePicture}
                             alt={p.name}

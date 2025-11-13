@@ -98,7 +98,7 @@ export default function UserList() {
                       <img
                         src={editData.image}
                         alt="preview"
-                        className="w-full h-40 object-cover rounded-full"
+                        className="w-full h-40 object-cover"
                       />
                       <label
                         htmlFor={`upload-${item._id}`}
@@ -185,7 +185,7 @@ export default function UserList() {
                     </div>
 
                     <div className="w-[50%]">
-                      <h3 className="text-2xl font-semibold">{item.title}</h3>
+                      <h3 className="text-2xl font-semibold capitalize">{item.title}</h3>
                       <p className="text-base text-gray-600 mt-2">
                         {item.description}
                       </p>

@@ -36,7 +36,7 @@ export default function Services() {
 
   return (
     <>
-      <div className="universal my-20">
+      <div className="universal my-10">
         <div className="fixed_width px-5 sm:px-2 md:px-2">
           <div className="universal_col">
             <AnimationWrapper direction="left">
@@ -62,7 +62,7 @@ export default function Services() {
               </p>
             </AnimationWrapper>
 
-            <div className="mt-10 p-5 w-full">
+            <div className="mt-10 w-full">
               {/* ✅ Loading State */}
               {loading ? (
                 <div className="flex items-center justify-center py-10">
@@ -78,41 +78,9 @@ export default function Services() {
                   {subCategories.map((sub) => (
                     <div key={sub._id} className="flex flex-col duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer">
                       {/* Top Bar */}
-                      <div className="bg-[#707070] relative flex flex-col w-full">
-                        <div className="px-2 pt-1 flex items-start justify-between">
-                          <div className="w-[50%] bg-[#9c9c9c] rounded-tl-lg rounded-tr-lg flex items-center justify-between px-2 text-white text-[12px]">
-                            <p>APlus Advertising</p>
-                            <IoMdClose />
-                          </div>
-                          <div className="w-[50%] flex items-center justify-end gap-2.5 text-sm text-white">
-                            <GoDash />
-                            <VscChromeMaximize />
-                            <IoMdClose />
-                          </div>
-                        </div>
-
-                        <div className="px-2 py-1 bg-[#9c9c9c] flex items-center justify-between gap-2.5">
-                          <div className="flex items-center text-white text-sm gap-2.5">
-                            <IoIosArrowBack />
-                            <IoIosArrowForward />
-                            <GrRefresh />
-                          </div>
-                          <div className="rounded-full bg-[#707070] flex items-center gap-2.5 text-white px-2 text-[12px]">
-                            <p>
-                              {sub.title.length > 10
-                                ? sub.title.slice(0, 10) + "..."
-                                : sub.title}
-                            </p>
-                            <IoMdClose />
-                          </div>
-                          <div className="text-white">
-                            <MdMoreHoriz />
-                          </div>
-                        </div>
-                      </div>
 
                       {/* Card Body */}
-                      <div className="bg-[#FAF9D0] flex flex-col items-center justify-center text-center h-full">
+                      <div className="flex flex-col items-center justify-center text-center h-full py-5">
                         <div className="w-full h-34 flex-shrink-0">
                           <img
                             src={sub.image}
@@ -122,7 +90,7 @@ export default function Services() {
                         </div>
 
                         <div className="flex-1 flex flex-col px-5">
-                          <h1 className="text-lg sm:text-xl md:text-xl font-semibold text-center my-2">
+                          <h1 className="text-lg sm:text-xl md:text-xl font-semibold text-center">
                             <AnimatedText text={sub.title} from="right" />
                           </h1>
                           <p className="text-sm text-gray-600">
@@ -132,7 +100,7 @@ export default function Services() {
                         </div>
 
                         <button
-                          className="neu-button my-5"
+                          className="neu-button mt-3"
                           onClick={() => setSelectedSub(sub)}
                         >
                           {sub.buttonText}
@@ -180,7 +148,7 @@ export default function Services() {
             )}
 
             {/* Bottom Section */}
-            <div className="mt-10">
+            <div className="my-10">
               <AnimationWrapper direction="left">
                 <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center">
                   <AnimatedText text="Do you have any plan?" from="right" />
