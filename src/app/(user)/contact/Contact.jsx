@@ -80,6 +80,7 @@ export default function Contact() {
                   alt="phone icon"
                   width={25}
                   height={25}
+                  unoptimized
                   className="object-contain"
                 />
                 <a
@@ -95,6 +96,7 @@ export default function Contact() {
                   alt="phone icon"
                   width={25}
                   height={25}
+                  unoptimized
                   className="object-contain"
                 />
                 <a
@@ -112,6 +114,7 @@ export default function Contact() {
                   alt="phone icon"
                   width={25}
                   height={25}
+                  unoptimized
                   className="object-contain"
                 />
                 <a
@@ -125,20 +128,38 @@ export default function Contact() {
             {/* social medai icon */}
             <div className="w-full px-1 py-2 mt-5 flex items-center justify-center sm:justify-center md:justify-start gap-5">
               {[
-                "/images/facebook.png",
-                "/images/instagram.png",
-                "/images/tiktok.png",
-                "/images/linkedin.png",
+                {
+                  src: "/images/facebook.png",
+                  url: "https://www.facebook.com/aplusadvertisingltd",
+                },
+                {
+                  src: "/images/instagram.png",
+                  url: "https://www.instagram.com/yourprofile",
+                },
+                {
+                  src: "/images/tiktok.png",
+                  url: "https://www.tiktok.com/@yourprofile",
+                },
+                {
+                  src: "/images/linkedin.png",
+                  url: "https://www.linkedin.com/in/yourprofile",
+                },
               ].map((src, i) => (
-                <Image
+                <a
                   key={i}
-                  src={src}
-                  alt="social icon"
-                  width={25}
-                  height={25}
-                  unoptimized
-                  className="object-contain filter drop-shadow-[0_4px_10px_rgba(50,30,0,0.9)] hover:drop-shadow-[0_6px_14px_rgba(50,30,0,0.95)] hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
-                />
+                  href={src.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={src.src}
+                    alt="social icon"
+                    width={25}
+                    height={25}
+                    unoptimized
+                    className="object-contain filter drop-shadow-[0_4px_10px_rgba(50,30,0,0.9)] hover:drop-shadow-[0_6px_14px_rgba(50,30,0,0.95)] hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+                  />
+                </a>
               ))}
             </div>
           </div>
@@ -150,6 +171,7 @@ export default function Contact() {
               alt="phone icon"
               width={400}
               height={400}
+              unoptimized
               className="object-contain"
             />
           </div>
@@ -163,6 +185,7 @@ export default function Contact() {
               alt="phone icon"
               width={400}
               height={400}
+              unoptimized
               className="object-contain"
             />
           </div>
