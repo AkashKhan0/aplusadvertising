@@ -1,3 +1,9 @@
 export default function Page() {
-  return <h1 className="text-3xl font-bold p-6">Not found Page</h1>;
+  return (
+    <>
+    <div className="w-full h-full flex items-center justify-center">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#9c1f0e]">Page Not found</h1>
+    </div>
+    </>
+  );
 }
