@@ -1,15 +1,22 @@
-const { createServer } = require("http");
 const next = require("next");
+const { createServer } = require("http");
 
-const dev = false; // production mode
+// Production mode
+const dev = false;
+
+// Next.js app init
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+// Passenger sets its own port if available
+const PORT = process.env.PORT || 3000;
+
 app.prepare().then(() => {
-  createServer((req, res) => {
-    // sob request handle korbe: frontend + admin + api
+  const server = createServer((req, res) => {
     handle(req, res);
-  }).listen(process.env.PORT || 3000, () => {
-    console.log("Server running on port", process.env.PORT || 3000);
+  });
+
+  server.listen(PORT, () => {
+    console.log("🚀 Next.js server running on port", PORT);
   });
 });
