@@ -78,6 +78,7 @@ const Navbar = () => {
             alt="My Business Logo"
             width={180}
             height={50}
+            unoptimized
             className="w-[70px] h-[40px]"
           />
         </Link>

@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import "../styles/slider.css";
 import AnimationWrapper from "./AnimationWrapper";
 import AnimatedText from "./AnimatedText";

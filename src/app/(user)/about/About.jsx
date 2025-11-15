@@ -41,6 +41,7 @@ export default function About() {
                 alt="phone icon"
                 width={400}
                 height={400}
+                unoptimized
                 className="object-contain"
               />
             </div>
@@ -173,6 +174,7 @@ export default function About() {
                 alt="phone icon"
                 width={400}
                 height={400}
+                unoptimized
                 className="object-contain"
               />
             </div>
@@ -287,6 +289,7 @@ export default function About() {
                 alt="phone icon"
                 width={400}
                 height={400}
+                unoptimized
                 className="object-contain"
               />
             </div>
@@ -300,13 +303,28 @@ export default function About() {
               </AnimationWrapper>
               <div className="w-full flex flex-col gap-5">
                 <p className="text-lg text-justify">
-                  At A Plus Advertising Limited, our mission is to empower businesses with innovative digital solutions that drive growth, enhance visibility, and deliver measurable success. We aim to become the best web development company in Bangladesh by combining technology, creativity, and strategic marketing expertise to help brands thrive in the digital era.
+                  At A Plus Advertising Limited, our mission is to empower
+                  businesses with innovative digital solutions that drive
+                  growth, enhance visibility, and deliver measurable success. We
+                  aim to become the best web development company in Bangladesh
+                  by combining technology, creativity, and strategic marketing
+                  expertise to help brands thrive in the digital era.
                 </p>
                 <p className="text-lg text-justify">
-                  We believe that every business, whether a startup or a global enterprise, deserves a strong digital foundation. That’s why our mission focuses on delivering custom-built websites, high-performing SEO campaigns, and result-driven digital marketing strategies that transform ideas into impactful online experiences.
+                  We believe that every business, whether a startup or a global
+                  enterprise, deserves a strong digital foundation. That’s why
+                  our mission focuses on delivering custom-built websites,
+                  high-performing SEO campaigns, and result-driven digital
+                  marketing strategies that transform ideas into impactful
+                  online experiences.
                 </p>
                 <p className="text-lg text-justify">
-                  Our team is committed to excellence, transparency, and long-term partnership. We don’t just build websites or run ads; we build digital ecosystems designed for sustainable success. With our 30-day free after-project support, we ensure every client gets continuous value even after the project is delivered.
+                  Our team is committed to excellence, transparency, and
+                  long-term partnership. We don’t just build websites or run
+                  ads; we build digital ecosystems designed for sustainable
+                  success. With our 30-day free after-project support, we ensure
+                  every client gets continuous value even after the project is
+                  delivered.
                 </p>
               </div>
             </div>
@@ -314,13 +332,14 @@ export default function About() {
           {/* botom part */}
           <div className="w-full py-2 mb-10">
             <p className="text-lg text-justify mb-3">
-              Our mission is simple: to help your business grow faster, reach wider, and achieve lasting digital success, with performance, trust, and innovation at the core of everything we do.
+              Our mission is simple: to help your business grow faster, reach
+              wider, and achieve lasting digital success, with performance,
+              trust, and innovation at the core of everything we do.
             </p>
           </div>
         </div>
       </div>
       {/* OUR MISSION end here */}
-
 
       {/* our vision start */}
       <div className="universal py-20 bg-[#FAF9D0]">
@@ -334,19 +353,34 @@ export default function About() {
                 </h1>
               </AnimationWrapper>
               <p className="text-lg text-justify">
-                At A Plus Advertising Limited, our vision is to be the leading digital solutions provider in Bangladesh, recognized as the best web development company in Dhaka and a trusted partner for businesses worldwide.
+                At A Plus Advertising Limited, our vision is to be the leading
+                digital solutions provider in Bangladesh, recognized as the best
+                web development company in Dhaka and a trusted partner for
+                businesses worldwide.
               </p>
 
               <p className="text-lg text-justify my-2">
-               We envision a future where every business, regardless of size, can leverage cutting-edge technology, creative design, and strategic digital marketing to grow and thrive online. Our goal is to empower brands with innovative websites, high-performing SEO strategies, and result-driven digital campaigns that deliver measurable success.
+                We envision a future where every business, regardless of size,
+                can leverage cutting-edge technology, creative design, and
+                strategic digital marketing to grow and thrive online. Our goal
+                is to empower brands with innovative websites, high-performing
+                SEO strategies, and result-driven digital campaigns that deliver
+                measurable success.
               </p>
 
               <p className="text-lg text-justify">
-                We strive to set new standards in the digital industry by combining technical expertise, industry knowledge, and a commitment to client satisfaction. Through continuous learning, innovation, and a customer-first approach, we aim to transform how businesses engage with their audience online.
+                We strive to set new standards in the digital industry by
+                combining technical expertise, industry knowledge, and a
+                commitment to client satisfaction. Through continuous learning,
+                innovation, and a customer-first approach, we aim to transform
+                how businesses engage with their audience online.
               </p>
 
               <p className="text-lg text-justify my-2">
-                Our vision is clear: To create a digital landscape where A Plus Advertising Limited is synonymous with quality, reliability, and success in web development and digital marketing, locally in Bangladesh and globally.
+                Our vision is clear: To create a digital landscape where A Plus
+                Advertising Limited is synonymous with quality, reliability, and
+                success in web development and digital marketing, locally in
+                Bangladesh and globally.
               </p>
             </div>
 
@@ -357,6 +391,7 @@ export default function About() {
                 alt="phone icon"
                 width={400}
                 height={400}
+                unoptimized
                 className="object-contain"
               />
             </div>

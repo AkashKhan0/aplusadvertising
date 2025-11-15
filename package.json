@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "start:prod": "node --max-old-space-size=2048 node_modules/next/dist/bin/next start"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",

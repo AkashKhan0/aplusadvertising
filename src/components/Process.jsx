@@ -33,7 +33,10 @@ export default function Process() {
             <h1 className="text-xl sm:text-xl md:text-2xl font-bold uppercase flex items-center justify-center text-center my-2">
               <AnimatedText text="Our Working Process" from="left" />
             </h1>
-            <p className="text-lg text-center">From strategy to execution, our working process is crafted to deliver excellence with creativity and precision.</p>
+            <p className="text-lg text-center">
+              From strategy to execution, our working process is crafted to
+              deliver excellence with creativity and precision.
+            </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 py-20">
               {steps.map((step, index) => {
@@ -49,7 +52,11 @@ export default function Process() {
                     }}
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className={`w-full h-fit p-2 flex flex-col items-center justify-between rounded-xl text-center transition-all
-                ${isActive ? "bg-[#FAF9D0] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]" : "bg-[#FAF9D0] shadow-lg"}`}
+                ${
+                  isActive
+                    ? "bg-[#FAF9D0] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]"
+                    : "bg-[#FAF9D0] shadow-lg"
+                }`}
                   >
                     {/* Image */}
                     <div className="flex-1 flex items-center justify-center">
@@ -58,6 +65,7 @@ export default function Process() {
                         alt={step.name}
                         width={60}
                         height={60}
+                        unoptimized
                         className="object-contain w-full h-[150px]"
                       />
                     </div>
