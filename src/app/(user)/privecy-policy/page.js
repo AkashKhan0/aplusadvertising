@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
       <div className="universal mb-[50px]">
-        <div className="fixed_width px-5 sm:px-2 md:px-2 my-5">
+        <div className="fixed_width px-5">
           <div className="flex flex-col w-full items-center justify-center">
             <AnimationWrapper direction="left">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">

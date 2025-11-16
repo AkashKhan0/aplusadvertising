@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "start:prod": "node --max-old-space-size=2048 node_modules/next/dist/bin/next start"
+    "lint": "eslint"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",

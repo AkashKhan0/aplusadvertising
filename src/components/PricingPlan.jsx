@@ -92,7 +92,7 @@ const PricingPlan = () => {
   return (
     <>
       <div className="w-full universal py-10 bg-[#F1E3A4]">
-        <div className="fixed_width px-2 sm:px-4 md:px-2 lg:px-0">
+        <div className="fixed_width px-5">
           <section className="text-[#222]">
             <div className="w-full text-center px-4">
               <h1 className="text-lg sm:text-2xl md:text-3xl font-bold uppercase flex items-center justify-center text-center my-2">

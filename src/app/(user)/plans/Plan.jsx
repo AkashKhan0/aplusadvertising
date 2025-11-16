@@ -120,7 +120,7 @@ export default function Plan() {
 
   return (
     <div className="universal mb-[50px]">
-      <div className="fixed_width px-5 sm:px-2 md:px-2">
+      <div className="fixed_width px-5">
         <div className="w-full flex flex-col items-center justify-center my-5 p-5">
           <AnimationWrapper direction="left">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2">

@@ -29,7 +29,7 @@ export default function Hero() {
     <>
       <div className="flex flex-col items-center justify-center bg-[#FAF9D0]">
         <div className="w-full universal">
-          <div className="fixed_width flex flex-col sm:flex-col md:flex-row items-stretch sm:items-center md:items-center justify-between h-fit py-24 gap-5 px-5 sm:px-2 md:px-2">
+          <div className="fixed_width flex flex-col sm:flex-col md:flex-row items-stretch sm:items-center md:items-center justify-between h-fit py-24 gap-5 px-5">
             {/* left side */}
             <div className="w-full sm:w-full md:w-[50%] flex flex-col items-center sm:items-center md:items-start justify-center">
               <AnimationWrapper direction="left">
@@ -100,7 +100,7 @@ export default function Hero() {
       </div>
 
       <div className="w-full universal py-20 bg-[#F1E3A4]">
-        <div className="fixed_width flex flex-col items-center justify-center gap-5 px-5 sm:px-2 md:px-2">
+        <div className="fixed_width flex flex-col items-center justify-center gap-5 px-5">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-col items-center justify-center text-center mb-5">
             <AnimatedText
               text="Empowering Your Growth with Innovation;"
@@ -149,7 +149,7 @@ export default function Hero() {
       </div>
 
       <div className="w-full universal py-20 bg-[#FAF9D0]">
-        <div className="fixed_width flex flex-col items-center justify-center gap-5 px-5 sm:px-2 md:px-2">
+        <div className="fixed_width flex flex-col items-center justify-center gap-5 px-5">
             <div className="w-full">
               <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center flex flex-col">
                 <AnimatedText

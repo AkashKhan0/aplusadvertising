@@ -33,7 +33,7 @@ export default function Project() {
   return (
     <>
       <div className="universal mb-[50px]">
-        <div className="fixed_width px-5 sm:px-2 md:px-2">
+        <div className="fixed_width px-5">
           {/* Header Section */}
           <div className="my-5">
             <AnimationWrapper direction="left">

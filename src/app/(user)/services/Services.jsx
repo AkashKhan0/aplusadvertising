@@ -37,7 +37,7 @@ export default function Services() {
   return (
     <>
       <div className="universal my-10">
-        <div className="fixed_width px-5 sm:px-2 md:px-2">
+        <div className="fixed_width px-5">
           <div className="universal_col">
             <AnimationWrapper direction="left">
               <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center">

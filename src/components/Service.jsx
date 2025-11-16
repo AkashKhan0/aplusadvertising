@@ -36,7 +36,7 @@ export default function Service() {
     <>
     <Process />
     <div className="w-full universal py-20 bg-[#FAF9D0]">
-      <div className="fixed_width px-5 sm:px-2 md:px-2 lg:px-0">
+      <div className="fixed_width px-5">
         {/* Heading */}
         <div className="w-full flex flex-col items-center justify-center">
           <AnimationWrapper direction="left">

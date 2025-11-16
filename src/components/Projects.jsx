@@ -26,7 +26,7 @@ export default function Projects() {
 
   return (
     <div className="w-full universal py-20 bg-[#FAF9D0]">
-      <div className="fixed_width px-2 sm:px-4 md:px-6">
+      <div className="fixed_width px-5">
         {/* Heading */}
         <div className="w-full flex flex-col items-center justify-center">
           <AnimationWrapper direction="right">

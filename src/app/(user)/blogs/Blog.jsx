@@ -22,7 +22,7 @@ export default function Blog() {
   return (
     <>
       <div className="universal mb-[50px]">
-        <div className="fixed_width px-5 sm:px-2 md:px-2">
+        <div className="fixed_width px-5">
           <AnimationWrapper direction="left">
             <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold text-center my-5">
               <AnimatedText text="Grow Online Smarter" from="right" />

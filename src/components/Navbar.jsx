@@ -222,7 +222,7 @@ const Navbar = () => {
               </div>
 
               <div
-                className={`absolute bottom-[40px] right-0 flex flex-col gap-2 mobile_icon_menu px-0.5
+                className={`absolute bottom-[50px] right-0 flex flex-col gap-2 mobile_icon_menu px-0.5
             ${open ? "scale-y-100 duration-500" : "scale-y-0 duration-500"}`}
               >
                 <Link

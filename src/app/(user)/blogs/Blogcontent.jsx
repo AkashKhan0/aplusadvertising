@@ -1,5 +1,4 @@
 "use client";
-import AnimatedText from "@/components/AnimatedText";
 import AnimationWrapper from "@/components/AnimationWrapper";
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";

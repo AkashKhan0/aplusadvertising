@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 import AnimatedText from "@/components/AnimatedText";
 import AnimationWrapper from "@/components/AnimationWrapper";
-import ButtonLink from "@/components/ButtonLink";
 import Image from "next/image";
 
 export default function About() {

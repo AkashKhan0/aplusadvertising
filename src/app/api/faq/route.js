@@ -18,6 +18,7 @@ export async function POST(request) {
   try {
     const body = await request.json();
     const { question, answer } = body;
+    console.log("Mongo URI:", process.env.MONGO_URI);
 
     if (!question || !answer) {
       return NextResponse.json({ success: false, error: "Question and answer required" }, { status: 400 });
