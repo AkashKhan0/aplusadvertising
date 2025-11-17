@@ -116,26 +116,28 @@ export default function TakeReview() {
               <h1 className="text-base title1 sm:text-lg uppercase font-semibold mb-2">
                 {review.name}
               </h1>
-              <p className="text-sm sm:text-base font-light">
+              <p className="text-base font-light text-center">
                 {review.message}
               </p>
             </div>
           ))}
+        </div>
 
+        <div className="w-full mt-20 flex items-center justify-center">
           {reviews.length > 1 && (
-            <>
-              <button id="nextt" onClick={handleNext}>
-                {">"}
-              </button>
+            <div className="text-3xl font-bold flex items-center justify-center gap-10">
               <button id="prevt" onClick={handlePrev}>
                 {"<"}
               </button>
-            </>
+              <button id="nextt" onClick={handleNext}>
+                {">"}
+              </button>
+            </div>
           )}
         </div>
 
         {/* review box */}
-        <div className="w-full">
+        <div className="w-full mt-20">
           <AnimationWrapper direction="left">
             <h1 className="text-2xl title1 sm:text-3xl md:text-4xl font-bold mt-2">
               <AnimatedText text="Say something about US!" from="right" />
