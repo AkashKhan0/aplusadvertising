@@ -118,8 +118,70 @@ export default function About() {
       </div>
       {/* who we are end here */}
 
+      {/* partner section start */}
+      <div className="universal pt-20 bg-[#F1E3A4]">
+        <div className="fixed_width px-5">
+          <AnimationWrapper direction="left">
+            <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center title1 mb-10 capitalize">
+              <AnimatedText text="Our administrator" from="right" />
+            </h1>
+          </AnimationWrapper>
+
+          {/* partner details */}
+          <div className="space-y-4">
+            {loading && <p className="text-center text-gray-500">Loading...</p>}
+
+            {!loading && partners.length === 0 && (
+              <p className="text-center text-gray-500">No partners found</p>
+            )}
+
+            <div className="w-full pb-20 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
+              {!loading &&
+                partners.map((p) => (
+                  <div
+                    key={p._id}
+                    className="overflow-hidden h-fit duration-300 rounded text-center bg-[#000000be] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer"
+                  >
+                    <div className="flex flex-col items-center gap-3 rounded">
+                      {/* cover photo */}
+                      <div className="w-full h-[200px] top-0 left-0">
+                        <img
+                          src={p.profilePicture}
+                          alt={p.name}
+                          className="inset-0 w-full h-full object-cover object-top"
+                        />
+                      </div>
+                      <div className="flex w-full items-center gap-3 py-1 px-2 relative">
+                        <div className="w-[150px] h-[150px] rounded-full mt-[-50px] border-2">
+                          <img
+                            src={p.profilePicture}
+                            alt={p.name}
+                            className="w-full h-full object-cover rounded-full"
+                          />
+                        </div>
+                        <div className="text-start">
+                          <h1 className="text-xl text-[#fff] font-semibold capitalize leading-[20px]">
+                            {p.name}
+                          </h1>
+                          <p className="text-base font-medium text-[#fff] capitalize">
+                            {p.title}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-[#fff] text-lg line-clamp-2 my-5">
+                      {p.description || "No description available."}
+                    </p>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* partner section end here */}
+
       {/* why choose us start */}
-      <div className="universal py-20 bg-[#F1E3A4]">
+      <div className="universal py-20 bg-[#FAF9D0]">
         <div className="fixed_width px-5">
           <div className="w-full flex flex-col-reverse sm:flex-col-reverse md:flex-row items-stretch justify-center gap-2.5">
             {/* left side */}
@@ -214,68 +276,6 @@ export default function About() {
         </div>
       </div>
       {/* why choose us end here */}
-
-      {/* partner section start */}
-      <div className="universal pt-20 bg-[#FAF9D0]">
-        <div className="fixed_width px-5">
-          <AnimationWrapper direction="left">
-            <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-center title1 mb-10 capitalize">
-              <AnimatedText text="Our administrator" from="right" />
-            </h1>
-          </AnimationWrapper>
-
-          {/* partner details */}
-          <div className="space-y-4">
-            {loading && <p className="text-center text-gray-500">Loading...</p>}
-
-            {!loading && partners.length === 0 && (
-              <p className="text-center text-gray-500">No partners found</p>
-            )}
-
-            <div className="w-full pb-20 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
-              {!loading &&
-                partners.map((p) => (
-                  <div
-                    key={p._id}
-                    className="overflow-hidden h-fit duration-300 rounded text-center bg-[#000000be] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer"
-                  >
-                    <div className="flex flex-col items-center gap-3 rounded">
-                      {/* cover photo */}
-                      <div className="w-full h-[200px] top-0 left-0">
-                        <img
-                          src={p.profilePicture}
-                          alt={p.name}
-                          className="inset-0 w-full h-full object-cover object-top"
-                        />
-                      </div>
-                      <div className="flex w-full items-center gap-3 py-1 px-2 relative">
-                        <div className="w-[150px] h-[150px] rounded-full mt-[-50px] border-2">
-                          <img
-                            src={p.profilePicture}
-                            alt={p.name}
-                            className="w-full h-full object-cover rounded-full"
-                          />
-                        </div>
-                        <div className="text-start">
-                          <h1 className="text-xl text-[#fff] font-semibold capitalize leading-[20px]">
-                            {p.name}
-                          </h1>
-                          <p className="text-base font-medium text-[#fff] capitalize">
-                            {p.title}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-[#fff] text-lg line-clamp-2 my-5">
-                      {p.description || "No description available."}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* partner section end here */}
 
       {/*OUR MISSION start */}
       <div className="universal py-10 bg-[#F1E3A4]">
