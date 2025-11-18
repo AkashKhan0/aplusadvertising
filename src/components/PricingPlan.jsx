@@ -13,19 +13,19 @@ const PricingPlan = () => {
       title: "Basic Website",
       description: "1-3 page, Single-page portfolio or landing page",
       tech: "HTML, CSS, JS",
-      price: 8000,
+      price: 10000,
     },
     {
       title: "Standard Website",
       description: "5–7 page business website with contact form",
       tech: "React.js / Next.js",
-      price: 18000,
+      price: 20000,
     },
     {
       title: "WordPress Website",
       description: "Custom WordPress website with theme setup & plugins",
       tech: "WordPress CMS",
-      price: 12000,
+      price: 15000,
     },
     {
       title: "E-commerce Website",
@@ -140,7 +140,7 @@ const PricingPlan = () => {
                       </p>
                     )}
                     <p className="text-xl font-bold text-[#9c1f0e] mb-6">
-                      ৳{plan.price.toLocaleString()} Only
+                      ৳- {plan.price.toLocaleString()}/- Only
                     </p>
                   </div>
                 ))}

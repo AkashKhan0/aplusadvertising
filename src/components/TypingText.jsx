@@ -7,7 +7,7 @@ const TypingText = () => {
   return (
     <div className="text-lg sm:text-xl font-semibold text-start text-[#222] flex items-center gap-2">
       <p className="text-[#0A152F]">We provide{" "}</p>
-      <p className="text-[#0A9AFD] font-bold">
+      <p className="text-[#0A152F] font-bold">
         <ReactTyped
         strings={[
           "Web Design",

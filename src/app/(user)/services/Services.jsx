@@ -76,7 +76,10 @@ export default function Services() {
               ) : subCategories.length > 0 ? (
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {subCategories.map((sub) => (
-                    <div key={sub._id} className="flex flex-col duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer">
+                    <div
+                      key={sub._id}
+                      className="flex flex-col duration-300 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer"
+                    >
                       {/* Top Bar */}
 
                       {/* Card Body */}
@@ -89,9 +92,9 @@ export default function Services() {
                           />
                         </div>
 
-                        <div className="flex-1 flex flex-col px-5">
-                          <h1 className="text-lg sm:text-xl md:text-xl font-semibold text-center">
-                            <AnimatedText text={sub.title} from="right" />
+                        <div className="flex-1 flex flex-col gap-2 px-5">
+                          <h1 className="text-lg sm:text-xl font-semibold text-center">
+                            {sub.title}
                           </h1>
                           <p className="text-sm text-gray-600">
                             {sub.description.split(" ").slice(0, 15).join(" ")}

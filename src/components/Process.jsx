@@ -8,11 +8,11 @@ import AnimatedText from "./AnimatedText";
 export default function Process() {
   const steps = [
     { name: "Analyze", img: "/images/analyze.gif" },
-    { name: "Planing", img: "/images/planing.gif" },
+    { name: "Planning", img: "/images/planing.gif" },
     { name: "Design", img: "/images/design.gif" },
     { name: "Development", img: "/images/develop.gif" },
     { name: "Testing", img: "/images/testing.gif" },
-    { name: "Launch", img: "/images/launch.gif" },
+    { name: "Lunching", img: "/images/launch.gif" },
     { name: "Support", img: "/images/support.gif" },
   ];
 

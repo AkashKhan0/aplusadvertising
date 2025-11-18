@@ -42,7 +42,7 @@ export default function Hero() {
                   </h1>
                   <h1 className="text-3xl sm:text-5xl md:text-7xl title1 py-2 font-bold">
                     <AnimatedText
-                      text="Aplus Advertising Limited"
+                      text="A Plus Advertising Limited"
                       from="left"
                     />
                   </h1>

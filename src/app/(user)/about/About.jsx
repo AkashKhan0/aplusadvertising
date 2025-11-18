@@ -135,43 +135,34 @@ export default function About() {
               <p className="text-center text-gray-500">No partners found</p>
             )}
 
-            <div className="w-full pb-20 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
+            <div className="w-full pb-20 px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5 items-stretch">
               {!loading &&
                 partners.map((p) => (
                   <div
                     key={p._id}
-                    className="overflow-hidden h-fit duration-300 rounded text-center bg-[#000000be] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] hover:shadow-lg cursor-pointer"
+                    className="overflow-hidden h-full duration-300 rounded text-center bg-[#faf9d000] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] shadow-md cursor-pointer"
                   >
-                    <div className="flex flex-col items-center gap-3 rounded">
+                    <div className="flex flex-col items-stretch justify-stretch gap-3 rounded py-5">
                       {/* cover photo */}
-                      <div className="w-full h-[200px] top-0 left-0">
+                      <div className="w-full h-[200px] flex items-center justify-center">
                         <img
                           src={p.profilePicture}
                           alt={p.name}
-                          className="inset-0 w-full h-full object-cover object-top"
+                          className="inset-0 w-[200px] h-[200px] rounded-full object-cover object-top"
                         />
                       </div>
-                      <div className="flex w-full items-center gap-3 py-1 px-2 relative">
-                        <div className="w-[150px] h-[150px] rounded-full mt-[-50px] border-2">
-                          <img
-                            src={p.profilePicture}
-                            alt={p.name}
-                            className="w-full h-full object-cover rounded-full"
-                          />
-                        </div>
-                        <div className="text-start">
-                          <h1 className="text-xl text-[#fff] font-semibold capitalize leading-[20px]">
-                            {p.name}
-                          </h1>
-                          <p className="text-base font-medium text-[#fff] capitalize">
-                            {p.title}
-                          </p>
-                        </div>
+                      <div className="w-full flex flex-col items-center mt-1 px-2 relative text-[#181520]">
+                        <h1 className="text-xl text-center font-semibold capitalize leading-[20px]">
+                          {p.name}
+                        </h1>
+                        <p className="text-base font-medium text-center capitalize">
+                          {p.title}
+                        </p>
+                        <p className="text-lg text-center">
+                          {p.description || "No description available."}
+                        </p>
                       </div>
                     </div>
-                    <p className="text-[#fff] text-lg line-clamp-2 my-5">
-                      {p.description || "No description available."}
-                    </p>
                   </div>
                 ))}
             </div>
