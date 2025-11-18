@@ -30,7 +30,7 @@ export default function Process() {
       <div className="w-full universal py-10 bg-[#F1E3A4]">
         <div className="fixed_width px-5 sm:px-4 md:px-2 lg:px-0">
           <div className="w-full text-black overflow-hidden">
-            <h1 className="text-xl sm:text-xl md:text-2xl font-bold uppercase flex items-center justify-center text-center my-2">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold uppercase flex items-center justify-center text-center my-2">
               <AnimatedText text="Our Working Process" from="left" />
             </h1>
             <p className="text-lg text-center">

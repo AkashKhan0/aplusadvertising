@@ -19,18 +19,38 @@ const Footer = () => {
           
           <div className="flex flex-col sm:flex-col md:flex-row items-center justify-evenly gap-2 w-full ">
             <div className="w-fit flex items-center justify-center gap-5">
-            <Link href="/" prefetch={true} className="social_icons">
-              <FaFacebookSquare className="s_icon" />
-            </Link>
-            <Link href="/" prefetch={true} className="social_icons">
+            <a
+                href="https://www.facebook.com/aplusadvertisingltd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social_icons"
+              >
+                <FaFacebookSquare className="s_icon" />
+              </a>
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social_icons"
+              >
               <FaInstagramSquare className="s_icon" />
-            </Link>
-            <Link href="/" prefetch={true} className="social_icons">
+              </a>
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social_icons"
+              >
               <FaLinkedin className="s_icon" />
-            </Link>
-            <Link href="/" prefetch={true} className="social_icons">
+              </a>
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social_icons"
+              >
               <FaYoutube className="s_icon" />
-            </Link>
+              </a>
           </div>
           
           <p className="text-center font-semibold">

@@ -37,9 +37,13 @@ export default function Projects() {
             </div>
           </AnimationWrapper>
           <AnimationWrapper direction="right">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-0 sm:gap-2 md:gap-2 mt-2">
               <AnimatedText
-                text="Showcasing work that speaks louder than words!"
+                text="Showcasing work that "
+                from="right"
+              />
+              <AnimatedText
+                text=" speaks louder than words!"
                 from="right"
               />
             </h1>

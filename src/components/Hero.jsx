@@ -34,17 +34,14 @@ export default function Hero() {
             <div className="w-full sm:w-full md:w-[50%] flex flex-col items-center sm:items-center md:items-start justify-center">
               <AnimationWrapper direction="left">
                 <div className="w-full text-center sm:text-center md:text-start">
-                  <h1 className="text-lg sm:text-xl md:text-2xl font-semibold">
-                    <AnimatedText
-                      text="Excellence in Business & Communication"
-                      from="right"
-                    />
+                  <h1 className="text-lg sm:text-xl md:text-2xl font-semibold flex flex-wrap flex-col sm:flex-col md:flex-row items-center gap-0 sm:gap-0 md:gap-3">
+                    <AnimatedText text="Excellence in Business" from="right" />
+                    <AnimatedText text="& Communication" from="right" />
                   </h1>
-                  <h1 className="text-3xl sm:text-5xl md:text-7xl title1 py-2 font-bold">
-                    <AnimatedText
-                      text="A Plus Advertising Limited"
-                      from="left"
-                    />
+                  <h1 className="text-4xl sm:text-4xl md:text-5xl title1 py-2 font-bold flex flex-wrap flex-col sm:flex-col md:flex-row items-center gap-0 sm:gap-0 md:gap-3">
+                    <AnimatedText text="A Plus" from="left" />
+                    <AnimatedText text="Advertising" from="left" />
+                    <AnimatedText text="Limited" from="left" />
                   </h1>
                   <div className="w-full">
                     {" "}
@@ -87,11 +84,9 @@ export default function Hero() {
                 </div>
               </AnimationWrapper>
               <AnimationWrapper direction="right">
-                <h1 className="text-lg sm:text-xl md:text-2xl title1 py-2">
-                  <AnimatedText
-                    text="The world is moving fast, are you keeping up?"
-                    from="right"
-                  />
+                <h1 className="text-lg sm:text-xl md:text-2xl title1 py-2 text-center sm:text-center md:text-start font-semibold flex flex-wrap flex-col sm:flex-col md:flex-row items-center justify-center gap-0 sm:gap-0 md:gap-3">
+                  <AnimatedText text="The world is moving fast," from="right" />
+                  <AnimatedText text="are you keeping up?" from="right" />
                 </h1>
               </AnimationWrapper>
             </div>
@@ -100,16 +95,14 @@ export default function Hero() {
       </div>
 
       <div className="w-full universal py-20 bg-[#F1E3A4]">
-        <div className="fixed_width flex flex-col items-center justify-center gap-5 px-5">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-col items-center justify-center text-center mb-5">
-            <AnimatedText
-              text="Empowering Your Growth with Innovation;"
-              from="right"
-            />
-            <AnimatedText
-              text="Building Bangladesh’s Digital Future."
-              from="right"
-            />
+        <div className="fixed_width flex flex-col items-center justify-center gap-3 px-5">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-0 sm:gap-2 md:gap-2">
+            <AnimatedText text="Empowering Your Growth " from="right" />
+            <AnimatedText text=" with Innovation;" from="right" />
+          </h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-0 sm:gap-2 md:gap-2">
+            <AnimatedText text="Building Bangladesh’s " from="right" />
+            <AnimatedText text=" Digital Future." from="right" />
           </h1>
           <p className="text-base md:text-lg text-justify">
             A Plus Advertising Limited is proudly recognized as one of the best
@@ -150,72 +143,73 @@ export default function Hero() {
 
       <div className="w-full universal py-20 bg-[#FAF9D0]">
         <div className="fixed_width flex flex-col items-center justify-center gap-5 px-5">
-            <div className="w-full">
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center flex flex-col">
-                <AnimatedText
-                  text="Why a Website and SEO Are Essential"
-                  from="right"
-                />
-                <AnimatedText text="For Every Business Today?" from="right" />
-              </h1>
+          <div className="w-full">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-0 sm:gap-2 md:gap-2">
+              <AnimatedText
+                text="Why a Website and "
+                from="right"
+              />
+              <AnimatedText
+                text=" SEO are Essential?"
+                from="right"
+              />
+            </h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center flex flex-col">
+              <AnimatedText text="For Every Business Today?" from="right" />
+            </h1>
+          </div>
+          <div className="w-full">
+            <div className="float-left w-[30%] min-w-[250px] mr-3">
+              <Image
+                src="/images/webseo.gif"
+                alt="why-website-seo"
+                width={50}
+                height={50}
+                unoptimized
+                className={`w-full h-full object-contain`}
+              />
             </div>
-            <div className="w-full">
-                <div className="float-left w-[30%] min-w-[300px] mr-3"
-                      // style={{ shapeOutside: "circle()", clipPath: "circle()" }}
-                      >
-                  <Image
-                      src="/images/webseo.gif"
-                      alt="why-website-seo"
-                      width={50}
-                      height={50}
-                      unoptimized
-                      className={`w-full h-full object-contain`}
-                    />
-                </div>
-              <p className="text-base md:text-lg text-justify">
-                In today’s fast-moving digital world, your website is not just a
-                virtual address; it’s your brand’s first impression, sales
-                engine, and trust builder. Whether you run a small business or a
-                large organization, having a professionally designed website is
-                essential to stay competitive, connect with customers, and grow
-                your brand online.
-              </p>
-              <p className="text-base md:text-lg text-justify my-3">
-                A well-developed website allows you to showcase your products,
-                services, and brand identity 24/7 to a global audience. It
-                builds credibility, trust, and authority, making potential
-                customers more confident in choosing your business over
-                competitors. Without a strong website, you risk losing leads,
-                visibility, and market share to brands that already have an
-                established digital presence. However, just having a website
-                isn’t enough; that’s where SEO (Search Engine Optimization)
-                comes in. SEO helps your website appear on Google’s first page,
-                where 90% of customers start their online journey. By optimizing
-                your content with the right keywords, improving website speed,
-                and maintaining mobile responsiveness, SEO ensures your business
-                gets found by the right audience at the right time.
-              </p>
-              <p className="text-base md:text-lg text-justify">
-                At A Plus Advertising Limited, we understand that a strong
-                online presence begins with an optimized website. Our
-                professional web development and SEO experts create fast,
-                user-friendly, and search engine–optimized websites that drive
-                organic traffic, boost brand awareness, and increase conversion
-                rates. Investing in SEO is no longer optional; it’s the
-                foundation of every successful digital marketing strategy. With
-                the right SEO techniques, your business can reach more
-                customers, achieve long-term visibility, and outperform
-                competitors in Bangladesh’s growing digital landscape.
-              </p>
-              <p className="text-base md:text-lg text-justify my-2">
-                That’s why brands choose A Plus Advertising Limited; the best
-                web development and SEO company in Bangladesh to build powerful
-                websites that don’t just look amazing, but actually rank,
-                perform, and grow revenue.
-              </p>
-              
-              
-              </div>
+            <p className="text-base md:text-lg text-justify">
+              In today’s fast-moving digital world, your website is not just a
+              virtual address; it’s your brand’s first impression, sales engine,
+              and trust builder. Whether you run a small business or a large
+              organization, having a professionally designed website is
+              essential to stay competitive, connect with customers, and grow
+              your brand online.
+            </p>
+            <p className="text-base md:text-lg text-justify my-3">
+              A well-developed website allows you to showcase your products,
+              services, and brand identity 24/7 to a global audience. It builds
+              credibility, trust, and authority, making potential customers more
+              confident in choosing your business over competitors. Without a
+              strong website, you risk losing leads, visibility, and market
+              share to brands that already have an established digital presence.
+              However, just having a website isn’t enough; that’s where SEO
+              (Search Engine Optimization) comes in. SEO helps your website
+              appear on Google’s first page, where 90% of customers start their
+              online journey. By optimizing your content with the right
+              keywords, improving website speed, and maintaining mobile
+              responsiveness, SEO ensures your business gets found by the right
+              audience at the right time.
+            </p>
+            <p className="text-base md:text-lg text-justify">
+              At A Plus Advertising Limited, we understand that a strong online
+              presence begins with an optimized website. Our professional web
+              development and SEO experts create fast, user-friendly, and search
+              engine–optimized websites that drive organic traffic, boost brand
+              awareness, and increase conversion rates. Investing in SEO is no
+              longer optional; it’s the foundation of every successful digital
+              marketing strategy. With the right SEO techniques, your business
+              can reach more customers, achieve long-term visibility, and
+              outperform competitors in Bangladesh’s growing digital landscape.
+            </p>
+            <p className="text-base md:text-lg text-justify my-2">
+              That’s why brands choose A Plus Advertising Limited; the best web
+              development and SEO company in Bangladesh to build powerful
+              websites that don’t just look amazing, but actually rank, perform,
+              and grow revenue.
+            </p>
+          </div>
         </div>
       </div>
     </>

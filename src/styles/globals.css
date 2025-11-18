@@ -15,7 +15,7 @@
   display: none;
 } */
 body {
-  background-color: #F1E3A4;
+  background-color: #f1e3a4;
   color: #181520;
 }
 .footer {
@@ -60,12 +60,13 @@ body {
 }
 
 .mobile_nav_items {
+  position: relative;
   color: #9c1f0e;
   transition: all 0.3s ease;
   border-radius: 50%;
   padding: 5px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,9 +74,20 @@ body {
 .mobile_nav_items:hover {
   color: #ffffff;
 }
+.menu_name {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s all ease;
+}
+.menu_name_active {
+  display: none;
+  transition: 0.3s all ease;
+}
 .mobile_nav_items_active {
   color: #ffffff;
-  background: #000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18), 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .mobile_icon_menu {
@@ -152,7 +164,7 @@ body {
 }
 .baton:hover {
   color: #9c1f0e;
-  border: 2px solid #0A152F;
+  border: 2px solid #0a152f;
 }
 button {
   text-transform: uppercase;
@@ -166,7 +178,7 @@ button {
   transition: all 0.3s ease;
 }
 .baton:hover .bordersy {
-  background-color: #0A152F;
+  background-color: #0a152f;
 }
 .bordersx {
   height: 10px;
@@ -175,37 +187,54 @@ button {
   transition: all 0.3s ease;
 }
 .baton:hover .bordersx {
-  background-color: #0A152F;
+  background-color: #0a152f;
 }
 .perspective-1000 {
   perspective: 1000px;
 }
 
-
-
 /* neo button design */
-/* From Uiverse.io by adamgiebl */ 
+/* From Uiverse.io by adamgiebl */
 .neu-button {
-  background-color: #0A152F;
+  background-color: #0a152f;
   border-radius: 50px;
-  box-shadow: inset 4px 4px 10px #0A152F, inset -4px -4px 10px #465b8c;
+  box-shadow: inset 4px 4px 10px #0a152f, inset -4px -4px 10px #465b8c;
   color: #aaa;
   cursor: pointer;
   font-size: 16px;
   padding: 5px 20px;
   transition: all 0.2s ease-in-out;
   letter-spacing: 2px;
-  border: 2px solid #0A152F;
+  border: 2px solid #0a152f;
+}
+@media (max-width: 420px) {
+  .neu-button {
+    font-size: 14px;
+    padding: 4px 15px;
+  }
+}
+@media (max-width: 370px) {
+  .neu-button {
+    letter-spacing: 0px;
+    padding: 4px 10px;
+  }
 }
 
 .neu-button:hover {
-  box-shadow: inset 2px 2px 5px #0A152F, inset -2px -2px 5px #465b8c, 2px 2px 5px #0A152F, -2px -2px 5px #465b8c;
+  box-shadow: inset 2px 2px 5px #0a152f, inset -2px -2px 5px #465b8c,
+    2px 2px 5px #0a152f, -2px -2px 5px #465b8c;
 }
 
 .neu-button:focus {
   outline: none;
-  box-shadow: inset 2px 2px 5px #0A152F, inset -2px -2px 5px #465b8c, 2px 2px 5px #0A152F, -2px -2px 5px #465b8c;
+  box-shadow: inset 2px 2px 5px #0a152f, inset -2px -2px 5px #465b8c,
+    2px 2px 5px #0a152f, -2px -2px 5px #465b8c;
 }
 
-
 /* project css */
+
+@media (max-width: 348px) {
+  .m_mail {
+    font-size: 12px;
+  }
+}

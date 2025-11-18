@@ -47,9 +47,13 @@ export default function Service() {
             </div>
           </AnimationWrapper>
           <AnimationWrapper direction="right">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 text-center">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-0 sm:gap-2 md:gap-2 mt-2">
               <AnimatedText
-                text="Where quality meets amazing service!"
+                text="Where quality meets "
+                from="right"
+              />
+              <AnimatedText
+                text=" amazing service!"
                 from="right"
               />
             </h1>

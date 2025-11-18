@@ -46,9 +46,13 @@ export default function Faq() {
               <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-center">
                 <AnimatedText text="Our Clients" from="right" />
               </h1>
-              <h1 className="text-lg sm:text-xl md:text-2xl title1 py-2 text-center">
+              <h1 className="text-2xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-0 sm:gap-2 md:gap-2">
                 <AnimatedText
-                  text="Trusted by leading brands worldwide."
+                  text="Trusted by leading "
+                  from="left"
+                />
+                <AnimatedText
+                  text="brands worldwide."
                   from="left"
                 />
               </h1>
@@ -105,7 +109,7 @@ export default function Faq() {
                       onClick={() => toggleFAQ(index)}
                       className="w-full flex flex-col items-center justify-center px-4 py-3 font-medium text-gray-800"
                     >
-                      <span className="text-xl font-bold">{faq.question}</span>
+                      <span className="text-lg sm:text-lg font-bold">{faq.question}</span>
                       {isOpen ? (
                         <IoIosArrowUp className="w-5 h-5 text-[#222]" />
                       ) : (

@@ -3,7 +3,6 @@
 import AnimatedText from "@/components/AnimatedText";
 import AnimationWrapper from "@/components/AnimationWrapper";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import {
   FaFacebookSquare,
@@ -63,7 +62,7 @@ export default function Contact() {
               <h1 className="text-lg sm:text-xl md:text-xl font-semibold uppercase title1">
                 <AnimatedText text="get in touch" from="right" />
               </h1>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold flex flex-col uppercase">
+              <h1 className="text-lg sm:text-2xl md:text-3xl font-bold flex flex-col uppercase">
                 <AnimatedText text="Contact Us for Web," from="right" />
                 <AnimatedText text="SEO & Marketing Solutions" from="right" />
               </h1>
@@ -119,7 +118,7 @@ export default function Contact() {
                 />
                 <a
                   href="mailto:aplusadvertisinglimited@gmail.com"
-                  className="text-lg font-semibold text-gray-800 hover:text-[#9c1f0e] transition duration-200"
+                  className="text-lg font-semibold text-gray-800 hover:text-[#9c1f0e] transition duration-200 m_mail"
                 >
                   aplusadvertisinglimited@gmail.com
                 </a>

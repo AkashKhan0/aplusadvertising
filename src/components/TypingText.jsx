@@ -5,7 +5,7 @@ import { ReactTyped } from "react-typed";
 
 const TypingText = () => {
   return (
-    <div className="text-lg sm:text-xl font-semibold text-start text-[#222] flex items-center gap-2">
+    <div className="text-lg sm:text-xl font-semibold text-[#222] flex items-center justify-center sm:justify-center md:justify-start gap-2">
       <p className="text-[#0A152F]">We provide{" "}</p>
       <p className="text-[#0A152F] font-bold">
         <ReactTyped

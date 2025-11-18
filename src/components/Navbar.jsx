@@ -191,6 +191,7 @@ const Navbar = () => {
                 isActive("/") ? "mobile_nav_items_active" : ""
               }`}
             >
+              <span  className={`${isActive("/") ? "menu_name_active" : "menu_name"}`}>Home</span>
               <TbHomeFilled />
             </Link>
             <Link
@@ -200,6 +201,7 @@ const Navbar = () => {
                 isActive("/about") ? "mobile_nav_items_active" : ""
               }`}
             >
+              <span  className={`${isActive("/about") ? "menu_name_active" : "menu_name"}`}>about</span>
               <RiInfoCardFill />
             </Link>
             <Link
@@ -209,6 +211,7 @@ const Navbar = () => {
                 isActive("/contact") ? "mobile_nav_items_active" : ""
               }`}
             >
+              <span  className={`${isActive("/contact") ? "menu_name_active" : "menu_name"}`}>contact</span>
               <MdConnectWithoutContact />
             </Link>
 
@@ -222,7 +225,7 @@ const Navbar = () => {
               </div>
 
               <div
-                className={`absolute bottom-[50px] right-0 flex flex-col gap-2 mobile_icon_menu px-0.5
+                className={`bg-[#0A152F] w-[100px] absolute bottom-[45px] right-0 flex flex-col gap-2 mobile_icon_menu px-2.5 rounded-t-xl items-center justify-center
             ${open ? "scale-y-100 duration-500" : "scale-y-0 duration-500"}`}
               >
                 <Link
@@ -233,6 +236,7 @@ const Navbar = () => {
                     isActive("/services") ? "mobile_nav_items_active" : ""
                   }`}
                 >
+              <span  className={`${isActive("/services") ? "menu_name_active" : "menu_name"}`}>services</span>
                   <GrServices />
                 </Link>
 
@@ -244,6 +248,7 @@ const Navbar = () => {
                     isActive("/blogs") ? "mobile_nav_items_active" : ""
                   }`}
                 >
+              <span  className={`${isActive("/blogs") ? "menu_name_active" : "menu_name"}`}>blogs</span>
                   <LiaBlogSolid />
                 </Link>
 
@@ -255,6 +260,7 @@ const Navbar = () => {
                     isActive("/projects") ? "mobile_nav_items_active" : ""
                   }`}
                 >
+              <span  className={`${isActive("/projects") ? "menu_name_active" : "menu_name"}`}>projects</span>
                   <FaDiagramProject />
                 </Link>
 
@@ -266,6 +272,7 @@ const Navbar = () => {
                     isActive("/templates") ? "mobile_nav_items_active" : ""
                   }`}
                 >
+              <span  className={`${isActive("/templates") ? "menu_name_active" : "menu_name"}`}>template</span>
                   <HiTemplate />
                 </Link>
 
@@ -277,6 +284,7 @@ const Navbar = () => {
                     isActive("/plans") ? "mobile_nav_items_active" : ""
                   }`}
                 >
+              <span className={`${isActive("/plans") ? "menu_name_active" : "menu_name"}`}>plans</span>
                   <BsFillDiagram3Fill />
                 </Link>
               </div>

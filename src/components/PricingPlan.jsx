@@ -94,7 +94,7 @@ const PricingPlan = () => {
       <div className="w-full universal py-10 bg-[#F1E3A4]">
         <div className="fixed_width px-5">
           <section className="text-[#222]">
-            <div className="w-full text-center px-4">
+            <div className="w-full text-center">
               <h1 className="text-lg sm:text-2xl md:text-3xl font-bold uppercase flex items-center justify-center text-center my-2">
                 <AnimatedText text="Our Pricing Plans" from="left" />
               </h1>
@@ -104,14 +104,14 @@ const PricingPlan = () => {
               </p>
 
               {/* Category Tabs */}
-              <div className="flex justify-center gap-3">
+              <div className="flex justify-center gap-2">
                 {["website", "seo", "marketing"].map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-6 py-2 rounded-full capitalize transition-all duration-300 text-lg font-semibold ${
+                    className={`px-3 sm:px-4 md:px-6 py-1 rounded-full capitalize transition-all duration-300 text-base font-semibold ${
                       activeTab === tab
-                        ? "bg-gradient-to-r from-[#0A152F] to-[#9c1f0e] text-white shadow-lg border-2"
+                        ? "bg-gradient-to-r from-[#0A152F] to-[#9c1f0e] text-white shadow-base border-2"
                         : "bg-[#0a152f00] border-2 border-[#0A152F] hover:bg-[#0A152F] text-[#0A152F] hover:text-[#fff]"
                     }`}
                   >
@@ -121,7 +121,7 @@ const PricingPlan = () => {
               </div>
 
               {/* Pricing Cards */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 cursor-pointer py-20">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 cursor-pointer pt-10 pb-20">
                 {getPlans().map((plan, index) => (
                   <div
                     key={index}
