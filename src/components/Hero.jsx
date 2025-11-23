@@ -45,7 +45,7 @@ export default function Hero() {
                   </h1>
                   <div className="w-full">
                     {" "}
-                    <TypingText />{" "}
+                    <TypingText />
                   </div>
                 </div>
               </AnimationWrapper>
@@ -98,11 +98,11 @@ export default function Hero() {
         <div className="fixed_width flex flex-col items-center justify-center gap-3 px-5">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-0 sm:gap-2 md:gap-2">
             <AnimatedText text="Empowering Your Growth " from="right" />
-            <AnimatedText text=" with Innovation;" from="right" />
+            <AnimatedText text="with Innovation;" from="right" />
           </h1>
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-0 sm:gap-2 md:gap-2">
             <AnimatedText text="Building Bangladesh’s " from="right" />
-            <AnimatedText text=" Digital Future." from="right" />
+            <AnimatedText text="Digital Future." from="right" />
           </h1>
           <p className="text-base md:text-lg text-justify">
             A Plus Advertising Limited is proudly recognized as one of the best
@@ -150,7 +150,7 @@ export default function Hero() {
                 from="right"
               />
               <AnimatedText
-                text=" SEO are Essential?"
+                text="SEO are Essential?"
                 from="right"
               />
             </h1>

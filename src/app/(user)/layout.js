@@ -1,11 +1,10 @@
 import Navbar from "@/components/Navbar";
 import "../../styles/globals.css";
 import Footer from "@/components/Footer";
-import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
-  title: "Aplus Asvertising Limited",
+  title: "A Plus Advertising Limited",
   description:
     "A Plus Advertising Limited - Expert web design, eCommerce, SEO & digital marketing to grow your business online",
   keywords: [
