@@ -1,7 +1,7 @@
 import Blog from "./Blog";
 
 export const metadata = {
-  title: "Our Blog - Aplus Asvertising Limited",
+  title: "Our Blog - Aplus Advertising Limited",
   description:
     "A Plus Advertising Limited - Expert web design, eCommerce, SEO & digital marketing to grow your business online",
   keywords: [

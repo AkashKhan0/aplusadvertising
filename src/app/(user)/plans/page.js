@@ -1,7 +1,7 @@
 import Plan from "./Plan";
 
 export const metadata = {
-  title: "Chose a plan - Aplus Asvertising Limited",
+  title: "Chose a plan - Aplus Advertising Limited",
   description:
     "A Plus Advertising Limited - Expert web design, eCommerce, SEO & digital marketing to grow your business online",
   keywords: [

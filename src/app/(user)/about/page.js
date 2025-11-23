@@ -1,7 +1,7 @@
 import About from "./About";
 
 export const metadata = {
-  title: "About Us - Aplus Asvertising Limited",
+  title: "About Us - Aplus Advertising Limited",
   description:
     "A Plus Advertising Limited - Expert web design, eCommerce, SEO & digital marketing to grow your business online",
   keywords: [
